@@ -42,13 +42,7 @@ function WhatsAppText({ text }: { text: string }) {
 
 function SignalIcon() {
   return (
-    <svg
-      width="18"
-      height="13"
-      viewBox="0 0 18 13"
-      fill="none"
-      aria-hidden="true"
-    >
+    <svg width="18" height="13" viewBox="0 0 18 13" fill="none" aria-hidden="true">
       <rect x="1" y="9" width="3" height="3" rx="0.7" fill="currentColor" />
       <rect x="5.5" y="7" width="3" height="5" rx="0.7" fill="currentColor" />
       <rect x="10" y="4" width="3" height="8" rx="0.7" fill="currentColor" />
@@ -59,13 +53,7 @@ function SignalIcon() {
 
 function WifiIcon() {
   return (
-    <svg
-      width="17"
-      height="13"
-      viewBox="0 0 17 13"
-      fill="none"
-      aria-hidden="true"
-    >
+    <svg width="17" height="13" viewBox="0 0 17 13" fill="none" aria-hidden="true">
       <path
         d="M1 4.5C5 1 12 1 16 4.5"
         stroke="currentColor"
@@ -85,13 +73,7 @@ function WifiIcon() {
 
 function BatteryIcon() {
   return (
-    <svg
-      width="25"
-      height="13"
-      viewBox="0 0 25 13"
-      fill="none"
-      aria-hidden="true"
-    >
+    <svg width="25" height="13" viewBox="0 0 25 13" fill="none" aria-hidden="true">
       <rect
         x="1"
         y="1"
@@ -101,14 +83,7 @@ function BatteryIcon() {
         stroke="currentColor"
         strokeWidth="1.2"
       />
-      <rect
-        x="3"
-        y="3"
-        width="15"
-        height="7"
-        rx="1.5"
-        fill="currentColor"
-      />
+      <rect x="3" y="3" width="15" height="7" rx="1.5" fill="currentColor" />
       <path
         d="M23 4.5C24.5 5.5 24.5 7.5 23 8.5"
         stroke="currentColor"
@@ -121,13 +96,7 @@ function BatteryIcon() {
 
 function BackIcon() {
   return (
-    <svg
-      width="19"
-      height="25"
-      viewBox="0 0 19 25"
-      fill="none"
-      aria-hidden="true"
-    >
+    <svg width="19" height="25" viewBox="0 0 19 25" fill="none" aria-hidden="true">
       <path
         d="M14 4L5 12.5L14 21"
         stroke="currentColor"
@@ -141,13 +110,7 @@ function BackIcon() {
 
 function VideoIcon() {
   return (
-    <svg
-      width="23"
-      height="23"
-      viewBox="0 0 24 24"
-      fill="none"
-      aria-hidden="true"
-    >
+    <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <rect
         x="2"
         y="6"
@@ -169,13 +132,7 @@ function VideoIcon() {
 
 function PhoneIcon() {
   return (
-    <svg
-      width="21"
-      height="21"
-      viewBox="0 0 24 24"
-      fill="none"
-      aria-hidden="true"
-    >
+    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path
         d="M5 3H9L11 8L8.5 10.5C9.7 13 11 14.3 13.5 15.5L16 13L21 15V19C21 20.1 20.1 21 19 21C10.2 21 3 13.8 3 5C3 3.9 3.9 3 5 3Z"
         stroke="currentColor"
@@ -189,13 +146,7 @@ function PhoneIcon() {
 
 function PlusIcon() {
   return (
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      aria-hidden="true"
-    >
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path
         d="M12 4V20M4 12H20"
         stroke="currentColor"
@@ -208,13 +159,7 @@ function PlusIcon() {
 
 function CameraIcon() {
   return (
-    <svg
-      width="21"
-      height="21"
-      viewBox="0 0 24 24"
-      fill="none"
-      aria-hidden="true"
-    >
+    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path
         d="M3 8H7L9 5H15L17 8H21V19H3V8Z"
         stroke="currentColor"
@@ -234,13 +179,7 @@ function CameraIcon() {
 
 function MicIcon() {
   return (
-    <svg
-      width="22"
-      height="22"
-      viewBox="0 0 24 24"
-      fill="none"
-      aria-hidden="true"
-    >
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <rect
         x="9"
         y="3"
@@ -304,7 +243,7 @@ function IPhone({
 
             <div className="absolute left-1/2 top-[15%] h-[48%] w-[29%] -translate-x-1/2 rounded-full bg-[#050505] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]" />
 
-            <div className="flex shrink-0 items-center gap-1 scale-[0.8] origin-right sm:scale-100">
+            <div className="flex shrink-0 origin-right scale-[0.8] items-center gap-1 sm:scale-100">
               <SignalIcon />
               <WifiIcon />
               <BatteryIcon />
@@ -334,7 +273,7 @@ function IPhone({
             </div>
 
             <div
-              className="flex shrink-0 items-center gap-2 text-[#007aff] scale-[0.85] origin-right sm:scale-100"
+              className="flex shrink-0 origin-right scale-[0.85] items-center gap-2 text-[#007aff] sm:scale-100"
               aria-hidden="true"
             >
               <VideoIcon />
@@ -464,8 +403,7 @@ export default function DemoPage() {
     return () => window.clearInterval(interval);
   }, []);
 
-  // Aguarda sem limite artificial de tempo.
-  // Apenas erros reais do backend encerram o processamento.
+  // Aguarda o resultado da IA sem alterar o fluxo do backend.
   async function waitForGemini(requestId: string): Promise<string> {
     while (mountedRef.current) {
       await new Promise<void>((resolve) => {
@@ -659,9 +597,10 @@ export default function DemoPage() {
 
         {/* VISÃO DO CLIENTE */}
         <div className="mx-auto w-full min-w-0 max-w-[650px]">
-          <header className="mb-8 text-center sm:mb-10">
-            <h1 className="flex flex-col items-center text-[clamp(28px,6vw,48px)] font-bold tracking-tight leading-tight">
-              <span className="flex h-14 w-full items-center justify-center sm:h-16">
+          <header className="mb-10 text-center sm:mb-12">
+            {/* TÍTULO MAIOR E RESPONSIVO */}
+            <h1 className="flex flex-col items-center text-[clamp(38px,5vw,64px)] font-bold tracking-tight leading-[1.08]">
+              <span className="flex h-[1.2em] w-full items-center justify-center">
                 <span
                   key={mealIndex}
                   className="inline-block animate-pulse text-[#D71943]"
@@ -676,7 +615,7 @@ export default function DemoPage() {
               </span>
             </h1>
 
-            <p className="mx-auto mt-4 max-w-[440px] text-sm leading-6 text-slate-600 sm:text-base">
+            <p className="mx-auto mt-5 max-w-[440px] text-sm leading-6 text-slate-600 sm:text-base">
               envie as especificações do seu pedido para restaurantes a qualquer hora do dia.
             </p>
           </header>
