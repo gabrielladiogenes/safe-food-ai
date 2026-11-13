@@ -42,7 +42,13 @@ function WhatsAppText({ text }: { text: string }) {
 
 function SignalIcon() {
   return (
-    <svg width="18" height="13" viewBox="0 0 18 13" fill="none" aria-hidden="true">
+    <svg
+      width="18"
+      height="13"
+      viewBox="0 0 18 13"
+      fill="none"
+      aria-hidden="true"
+    >
       <rect x="1" y="9" width="3" height="3" rx="0.7" fill="currentColor" />
       <rect x="5.5" y="7" width="3" height="5" rx="0.7" fill="currentColor" />
       <rect x="10" y="4" width="3" height="8" rx="0.7" fill="currentColor" />
@@ -53,9 +59,25 @@ function SignalIcon() {
 
 function WifiIcon() {
   return (
-    <svg width="17" height="13" viewBox="0 0 17 13" fill="none" aria-hidden="true">
-      <path d="M1 4.5C5 1 12 1 16 4.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-      <path d="M4 7C6.5 5 10.5 5 13 7" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+    <svg
+      width="17"
+      height="13"
+      viewBox="0 0 17 13"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M1 4.5C5 1 12 1 16 4.5"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+      />
+      <path
+        d="M4 7C6.5 5 10.5 5 13 7"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+      />
       <circle cx="8.5" cy="10.5" r="1.4" fill="currentColor" />
     </svg>
   );
@@ -63,62 +85,183 @@ function WifiIcon() {
 
 function BatteryIcon() {
   return (
-    <svg width="25" height="13" viewBox="0 0 25 13" fill="none" aria-hidden="true">
-      <rect x="1" y="1" width="20" height="11" rx="3" stroke="currentColor" strokeWidth="1.2" />
-      <rect x="3" y="3" width="15" height="7" rx="1.5" fill="currentColor" />
-      <path d="M23 4.5C24.5 5.5 24.5 7.5 23 8.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    <svg
+      width="25"
+      height="13"
+      viewBox="0 0 25 13"
+      fill="none"
+      aria-hidden="true"
+    >
+      <rect
+        x="1"
+        y="1"
+        width="20"
+        height="11"
+        rx="3"
+        stroke="currentColor"
+        strokeWidth="1.2"
+      />
+      <rect
+        x="3"
+        y="3"
+        width="15"
+        height="7"
+        rx="1.5"
+        fill="currentColor"
+      />
+      <path
+        d="M23 4.5C24.5 5.5 24.5 7.5 23 8.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
     </svg>
   );
 }
 
 function BackIcon() {
   return (
-    <svg width="19" height="25" viewBox="0 0 19 25" fill="none" aria-hidden="true">
-      <path d="M14 4L5 12.5L14 21" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    <svg
+      width="19"
+      height="25"
+      viewBox="0 0 19 25"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M14 4L5 12.5L14 21"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
 
 function VideoIcon() {
   return (
-    <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <rect x="2" y="6" width="14" height="12" rx="3" stroke="currentColor" strokeWidth="1.8" />
-      <path d="M16 10L22 7V17L16 14" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+    <svg
+      width="23"
+      height="23"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <rect
+        x="2"
+        y="6"
+        width="14"
+        height="12"
+        rx="3"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
+      <path
+        d="M16 10L22 7V17L16 14"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
 
 function PhoneIcon() {
   return (
-    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M5 3H9L11 8L8.5 10.5C9.7 13 11 14.3 13.5 15.5L16 13L21 15V19C21 20.1 20.1 21 19 21C10.2 21 3 13.8 3 5C3 3.9 3.9 3 5 3Z" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+    <svg
+      width="21"
+      height="21"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M5 3H9L11 8L8.5 10.5C9.7 13 11 14.3 13.5 15.5L16 13L21 15V19C21 20.1 20.1 21 19 21C10.2 21 3 13.8 3 5C3 3.9 3.9 3 5 3Z"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
 
 function PlusIcon() {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M12 4V20M4 12H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M12 4V20M4 12H20"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
     </svg>
   );
 }
 
 function CameraIcon() {
   return (
-    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M3 8H7L9 5H15L17 8H21V19H3V8Z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
-      <circle cx="12" cy="13" r="3.2" stroke="currentColor" strokeWidth="1.7" />
+    <svg
+      width="21"
+      height="21"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M3 8H7L9 5H15L17 8H21V19H3V8Z"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinejoin="round"
+      />
+      <circle
+        cx="12"
+        cy="13"
+        r="3.2"
+        stroke="currentColor"
+        strokeWidth="1.7"
+      />
     </svg>
   );
 }
 
 function MicIcon() {
   return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <rect x="9" y="3" width="6" height="12" rx="3" stroke="currentColor" strokeWidth="1.7" />
-      <path d="M6 11C6 15 8.5 18 12 18C15.5 18 18 15 18 11" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-      <path d="M12 18V21M9 21H15" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+    <svg
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <rect
+        x="9"
+        y="3"
+        width="6"
+        height="12"
+        rx="3"
+        stroke="currentColor"
+        strokeWidth="1.7"
+      />
+      <path
+        d="M6 11C6 15 8.5 18 12 18C15.5 18 18 15 18 11"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+      />
+      <path
+        d="M12 18V21M9 21H15"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+      />
     </svg>
   );
 }
@@ -144,24 +287,24 @@ function IPhone({
   }, [messages, sending]);
 
   return (
-    <div className="mx-auto w-full max-w-[410px]">
-      <div className="relative w-full rounded-[clamp(38px,10vw,62px)] border-[7px] border-[#17181c] bg-[#17181c] p-[3px] shadow-[0_0_0_1px_#57585e,0_18px_35px_rgba(0,0,0,0.16),0_40px_85px_rgba(0,0,0,0.18)]">
+    <div className="mx-auto w-full max-w-[410px] min-w-0">
+      <div className="relative w-full rounded-[44px] border-[6px] border-[#17181c] bg-[#17181c] p-[3px] shadow-[0_0_0_1px_#57585e,0_18px_35px_rgba(0,0,0,0.16),0_40px_85px_rgba(0,0,0,0.18)] sm:rounded-[56px] sm:border-[7px]">
         {/* Botões físicos decorativos */}
-        <div className="pointer-events-none absolute -left-[10px] top-[17%] h-[5%] w-[3px] rounded-l bg-[#484950]" />
-        <div className="pointer-events-none absolute -left-[10px] top-[25%] h-[9%] w-[3px] rounded-l bg-[#484950]" />
-        <div className="pointer-events-none absolute -left-[10px] top-[36%] h-[9%] w-[3px] rounded-l bg-[#484950]" />
-        <div className="pointer-events-none absolute -right-[10px] top-[29%] h-[12%] w-[3px] rounded-r bg-[#484950]" />
+        <div className="pointer-events-none absolute -left-[9px] top-[17%] h-[5%] w-[3px] rounded-l bg-[#484950]" />
+        <div className="pointer-events-none absolute -left-[9px] top-[25%] h-[9%] w-[3px] rounded-l bg-[#484950]" />
+        <div className="pointer-events-none absolute -left-[9px] top-[36%] h-[9%] w-[3px] rounded-l bg-[#484950]" />
+        <div className="pointer-events-none absolute -right-[9px] top-[29%] h-[12%] w-[3px] rounded-r bg-[#484950]" />
 
-        <div className="relative flex aspect-[440/956] min-h-0 flex-col overflow-hidden rounded-[clamp(30px,9vw,51px)] bg-[#f6f6f6]">
+        <div className="relative flex aspect-[440/956] min-h-0 flex-col overflow-hidden rounded-[36px] bg-[#f6f6f6] sm:rounded-[48px]">
           {/* Barra de status */}
-          <div className="relative z-10 flex h-[62px] shrink-0 items-center justify-between bg-[#f6f6f6] px-7 pt-2 text-black">
-            <span className="text-[13px] font-semibold tracking-tight">
+          <div className="relative z-10 flex h-[13%] min-h-0 shrink-0 items-center justify-between bg-[#f6f6f6] px-[7%] pt-[2%] text-black">
+            <span className="text-[clamp(10px,3vw,13px)] font-semibold tracking-tight">
               9:41
             </span>
 
-            <div className="absolute left-1/2 top-[11px] h-[31px] w-[115px] -translate-x-1/2 rounded-full bg-[#050505] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]" />
+            <div className="absolute left-1/2 top-[15%] h-[48%] w-[29%] -translate-x-1/2 rounded-full bg-[#050505] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]" />
 
-            <div className="flex shrink-0 items-center gap-[5px]">
+            <div className="flex shrink-0 items-center gap-1 scale-[0.8] origin-right sm:scale-100">
               <SignalIcon />
               <WifiIcon />
               <BatteryIcon />
@@ -169,25 +312,31 @@ function IPhone({
           </div>
 
           {/* Cabeçalho do WhatsApp simulado */}
-          <div className="flex h-[68px] shrink-0 items-center gap-2 border-b border-[#e5e5e5] bg-[#f6f6f6] px-3">
-            <span className="flex shrink-0 items-center text-[#007aff]" aria-hidden="true">
+          <div className="flex h-[10%] min-h-0 shrink-0 items-center gap-2 border-b border-[#e5e5e5] bg-[#f6f6f6] px-[3%]">
+            <span
+              className="flex shrink-0 items-center text-[#007aff]"
+              aria-hidden="true"
+            >
               <BackIcon />
             </span>
 
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#D71943] text-xs font-bold text-white">
+            <div className="flex aspect-square w-[11%] shrink-0 items-center justify-center rounded-full bg-[#D71943] text-[clamp(9px,2.5vw,12px)] font-bold text-white">
               SF
             </div>
 
             <div className="min-w-0 flex-1">
-              <p className="truncate text-sm font-semibold text-black">
+              <p className="truncate text-[clamp(11px,2.8vw,14px)] font-semibold text-black">
                 SAFE FOOD AI
               </p>
-              <p className="truncate text-[11px] text-[#777]">
+              <p className="truncate text-[clamp(9px,2.3vw,11px)] text-[#777]">
                 Avisos alimentares
               </p>
             </div>
 
-            <div className="flex shrink-0 items-center gap-3 text-[#007aff]" aria-hidden="true">
+            <div
+              className="flex shrink-0 items-center gap-2 text-[#007aff] scale-[0.85] origin-right sm:scale-100"
+              aria-hidden="true"
+            >
               <VideoIcon />
               <PhoneIcon />
             </div>
@@ -196,7 +345,7 @@ function IPhone({
           {/* Conversa */}
           <div
             ref={chatRef}
-            className="flex min-h-0 flex-1 flex-col gap-3 overflow-x-hidden overflow-y-auto px-3 py-4"
+            className="flex min-h-0 flex-1 flex-col gap-3 overflow-x-hidden overflow-y-auto px-[4%] py-[4%]"
             style={{
               backgroundColor: "#eae6df",
               backgroundImage:
@@ -241,33 +390,42 @@ function IPhone({
           </div>
 
           {/* Barra ilustrativa */}
-          <div className="flex h-[65px] shrink-0 items-center gap-3 border-t border-[#e9e9e9] bg-[#f6f6f6] px-3">
-            <span className="flex shrink-0 items-center text-[#007aff]" aria-hidden="true">
+          <div className="flex h-[10%] min-h-0 shrink-0 items-center gap-2 border-t border-[#e9e9e9] bg-[#f6f6f6] px-[3%]">
+            <span
+              className="flex shrink-0 items-center text-[#007aff]"
+              aria-hidden="true"
+            >
               <PlusIcon />
             </span>
 
-            <div className="flex min-w-0 flex-1 items-center justify-between rounded-full border border-[#dedede] bg-white px-3 py-[9px]">
-              <span className="truncate text-[13px] text-[#aaa]">
+            <div className="flex min-w-0 flex-1 items-center justify-between rounded-full border border-[#dedede] bg-white px-3 py-[2%]">
+              <span className="truncate text-[clamp(11px,2.8vw,13px)] text-[#aaa]">
                 Mensagem
               </span>
 
-              <span className="ml-2 shrink-0 text-[#999]" aria-hidden="true">
+              <span
+                className="ml-2 shrink-0 text-[#999]"
+                aria-hidden="true"
+              >
                 <CameraIcon />
               </span>
             </div>
 
-            <span className="flex shrink-0 items-center text-[#007aff]" aria-hidden="true">
+            <span
+              className="flex shrink-0 items-center text-[#007aff]"
+              aria-hidden="true"
+            >
               <MicIcon />
             </span>
           </div>
 
-          <div className="flex h-[24px] shrink-0 items-center justify-center bg-[#f6f6f6]">
-            <div className="h-[5px] w-[120px] rounded-full bg-black" />
+          <div className="flex h-[4%] min-h-0 shrink-0 items-center justify-center bg-[#f6f6f6]">
+            <div className="h-[5px] w-[30%] rounded-full bg-black" />
           </div>
         </div>
       </div>
 
-      <p className="mt-4 text-center text-xs text-slate-500">
+      <p className="mt-4 text-center text-xs leading-5 text-slate-500">
         Simulação visual do recebimento pelo restaurante
       </p>
     </div>
@@ -329,7 +487,6 @@ export default function DemoPage() {
           }
         );
       } catch (error) {
-        // Falha temporária de conexão: tentar novamente.
         console.warn(
           "[SAFE FOOD AI] Consulta temporariamente indisponível:",
           error
@@ -337,7 +494,6 @@ export default function DemoPage() {
         continue;
       }
 
-      // Falhas temporárias do servidor não interrompem a espera.
       if (response.status >= 500) {
         continue;
       }
@@ -361,7 +517,6 @@ export default function DemoPage() {
           typeof data.mensagemIA === "string" &&
           data.mensagemIA.trim()
         ) {
-          // Retorna exatamente o texto gerado pelo Gemini.
           return data.mensagemIA;
         }
 
@@ -428,7 +583,6 @@ export default function DemoPage() {
         ].join("\n"),
       };
 
-      // Envia o pedido e recebe o identificador do Redis.
       const response = await fetch("/api/restaurant-alert", {
         method: "POST",
         headers: {
@@ -456,7 +610,6 @@ export default function DemoPage() {
         );
       }
 
-      // Consulta o Redis até o callback registrar o resultado.
       const mensagemIA = await waitForGemini(data.requestId);
 
       if (!mountedRef.current) return;
@@ -494,20 +647,20 @@ export default function DemoPage() {
   }
 
   const inputStyle =
-    "w-full rounded-2xl border border-slate-200 " +
+    "block w-full min-w-0 rounded-2xl border border-slate-200 " +
     "bg-white px-4 py-3 text-slate-900 " +
     "shadow-sm outline-none transition-all duration-200 " +
     "placeholder:text-slate-400 " +
     "focus:border-[#D71943] focus:ring-2 focus:ring-rose-100";
 
   return (
-    <main className="min-h-screen bg-[#f8f9fb] px-4 py-10 text-slate-900 sm:px-6 lg:py-16">
-      <div className="mx-auto grid max-w-6xl items-start gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16">
+    <main className="min-h-screen overflow-x-clip bg-[#f8f9fb] px-4 py-8 text-slate-900 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
+      <div className="mx-auto grid w-full max-w-[1200px] grid-cols-1 items-start gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-12 xl:gap-16">
 
         {/* VISÃO DO CLIENTE */}
-        <div className="mx-auto w-full max-w-2xl">
-          <header className="mb-10 text-center">
-            <h1 className="flex flex-col items-center text-4xl font-bold tracking-tight sm:text-5xl">
+        <div className="mx-auto w-full min-w-0 max-w-[650px]">
+          <header className="mb-8 text-center sm:mb-10">
+            <h1 className="flex flex-col items-center text-[clamp(28px,6vw,48px)] font-bold tracking-tight leading-tight">
               <span className="flex h-14 w-full items-center justify-center sm:h-16">
                 <span
                   key={mealIndex}
@@ -518,18 +671,18 @@ export default function DemoPage() {
                 </span>
               </span>
 
-              <span className="block whitespace-nowrap">
+              <span className="block text-center">
                 do seu jeitinho.
               </span>
             </h1>
 
-            <p className="mt-4 text-slate-600">
+            <p className="mx-auto mt-4 max-w-[440px] text-sm leading-6 text-slate-600 sm:text-base">
               envie as especificações do seu pedido para restaurantes a qualquer hora do dia.
             </p>
           </header>
 
-          <section className="rounded-[30px] border border-slate-200 bg-white p-6 shadow-[0_8px_32px_rgba(0,0,0,0.06)] sm:p-9">
-            <h2 className="mb-2 text-2xl font-bold tracking-tight">
+          <section className="w-full min-w-0 rounded-[26px] border border-slate-200 bg-white p-5 shadow-[0_8px_32px_rgba(0,0,0,0.06)] sm:rounded-[30px] sm:p-8 xl:p-9">
+            <h2 className="mb-2 text-xl font-bold tracking-tight sm:text-2xl">
               Informações do pedido
             </h2>
 
@@ -539,7 +692,10 @@ export default function DemoPage() {
 
             <div className="space-y-5">
               <div>
-                <label htmlFor="name" className="mb-2 block text-sm font-medium">
+                <label
+                  htmlFor="name"
+                  className="mb-2 block text-sm font-medium"
+                >
                   Seu nome
                 </label>
 
@@ -553,7 +709,10 @@ export default function DemoPage() {
               </div>
 
               <div>
-                <label htmlFor="restriction" className="mb-2 block text-sm font-medium">
+                <label
+                  htmlFor="restriction"
+                  className="mb-2 block text-sm font-medium"
+                >
                   Restrição ou preferência alimentar
                 </label>
 
@@ -568,7 +727,10 @@ export default function DemoPage() {
               </div>
 
               <div>
-                <label htmlFor="platform" className="mb-2 block text-sm font-medium">
+                <label
+                  htmlFor="platform"
+                  className="mb-2 block text-sm font-medium"
+                >
                   Plataforma de delivery
                 </label>
 
@@ -585,7 +747,10 @@ export default function DemoPage() {
               </div>
 
               <div>
-                <label htmlFor="restaurant" className="mb-2 block text-sm font-medium">
+                <label
+                  htmlFor="restaurant"
+                  className="mb-2 block text-sm font-medium"
+                >
                   Nome do restaurante
                 </label>
 
@@ -599,7 +764,10 @@ export default function DemoPage() {
               </div>
 
               <div>
-                <label htmlFor="order" className="mb-2 block text-sm font-medium">
+                <label
+                  htmlFor="order"
+                  className="mb-2 block text-sm font-medium"
+                >
                   Número do pedido
                 </label>
 
@@ -627,7 +795,7 @@ export default function DemoPage() {
 
           {sendStatus === "success" && (
             <section
-              className="mt-6 rounded-[28px] border border-rose-200 bg-white p-8 text-center shadow-[0_8px_30px_rgba(120,20,45,0.07)]"
+              className="mt-6 rounded-[28px] border border-rose-200 bg-white p-6 text-center shadow-[0_8px_30px_rgba(120,20,45,0.07)] sm:p-8"
               role="status"
             >
               <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full border border-rose-200 bg-rose-50 text-2xl font-bold text-[#D71943]">
@@ -679,7 +847,7 @@ export default function DemoPage() {
         </div>
 
         {/* VISÃO DO RESTAURANTE */}
-        <div className="flex min-w-0 flex-col items-center">
+        <div className="flex w-full min-w-0 flex-col items-center lg:sticky lg:top-8">
           <div className="mb-7 text-center">
             <h2 className="text-2xl font-bold tracking-tight text-slate-900">
               Visão do restaurante
@@ -698,10 +866,12 @@ export default function DemoPage() {
             </div>
           </div>
 
-          <IPhone
-            messages={messages}
-            sending={sendStatus === "sending"}
-          />
+          <div className="w-full max-w-[410px] min-w-0 px-1 sm:px-0">
+            <IPhone
+              messages={messages}
+              sending={sendStatus === "sending"}
+            />
+          </div>
 
           <button
             type="button"
@@ -714,7 +884,7 @@ export default function DemoPage() {
               messages.length === 0 ||
               sendStatus === "sending"
             }
-            className="mt-3 rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-medium text-slate-600 shadow-sm transition-colors hover:border-[#D71943] hover:text-[#D71943] disabled:cursor-not-allowed disabled:opacity-40"
+            className="mt-4 rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-medium text-slate-600 shadow-sm transition-colors hover:border-[#D71943] hover:text-[#D71943] disabled:cursor-not-allowed disabled:opacity-40"
             aria-label="Limpar conversa simulada do restaurante"
           >
             Limpar conversa

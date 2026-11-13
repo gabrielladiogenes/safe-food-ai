@@ -1,6 +1,7 @@
 
 import { NextResponse } from "next/server";
 import { Redis } from "@upstash/redis";
+import { Ratelimit } from "@upstash/ratelimit";
 import { z } from "zod";
 import { randomUUID } from "node:crypto";
 
@@ -46,15 +47,13 @@ function getRedis(): Redis {
     throw new Error("REDIS_NOT_CONFIGURED");
   }
 
-  return new Redis({
-    url,
-    token,
-  });
+  return new Redis({ url, token });
 }
 
 function publicError(
   status: number,
-  message = "Não foi possível concluir sua solicitação. Tente novamente."
+  message = "Não foi possível concluir sua solicitação. Tente novamente.",
+  retryAfter?: number
 ) {
   return NextResponse.json(
     {
@@ -66,9 +65,83 @@ function publicError(
       status,
       headers: {
         "Cache-Control": "no-store",
+        ...(retryAfter !== undefined
+          ? { "Retry-After": String(retryAfter) }
+          : {}),
       },
     }
   );
+}
+
+function getClientIp(request: Request): string {
+  // Na Vercel, este cabeçalho é fornecido pela infraestrutura.
+  // Fora dela, usamos uma identificação conservadora.
+  const forwarded = request.headers.get("x-forwarded-for");
+
+  if (forwarded) {
+    const firstIp = forwarded.split(",")[0]?.trim();
+
+    if (firstIp) {
+      return firstIp;
+    }
+  }
+
+  return "unknown";
+}
+
+async function checkRateLimits(
+  redis: Redis,
+  request: Request
+): Promise<NextResponse | null> {
+  const clientIp = getClientIp(request);
+
+  // Limite individual: 10 solicitações por minuto.
+  const perIpLimiter = new Ratelimit({
+    redis,
+    limiter: Ratelimit.slidingWindow(10, "1 m"),
+    prefix: "safefood:ratelimit:ip",
+    analytics: false,
+  });
+
+  // Limite global: 30 solicitações por dia.
+  const dailyLimiter = new Ratelimit({
+    redis,
+    limiter: Ratelimit.fixedWindow(30, "1 d"),
+    prefix: "safefood:ratelimit:global",
+    analytics: false,
+  });
+
+  const ipResult = await perIpLimiter.limit(clientIp);
+
+  if (!ipResult.success) {
+    const retryAfter = Math.max(
+      1,
+      Math.ceil((ipResult.reset - Date.now()) / 1000)
+    );
+
+    return publicError(
+      429,
+      "Você realizou muitas solicitações. Aguarde um momento antes de tentar novamente.",
+      retryAfter
+    );
+  }
+
+  const dailyResult = await dailyLimiter.limit("demo");
+
+  if (!dailyResult.success) {
+    const retryAfter = Math.max(
+      1,
+      Math.ceil((dailyResult.reset - Date.now()) / 1000)
+    );
+
+    return publicError(
+      429,
+      "O limite diário de testes da demonstração foi atingido. Tente novamente mais tarde.",
+      retryAfter
+    );
+  }
+
+  return null;
 }
 
 export async function POST(request: Request) {
@@ -105,17 +178,52 @@ export async function POST(request: Request) {
     return publicError(503);
   }
 
-  // 4. Gerar um identificador exclusivo.
-  const requestId = randomUUID();
-
-  const redisKey = `safefood:request:${requestId}`;
-
-  // 5. Conectar ao Redis e registrar o pedido.
+  // 4. Conectar ao Redis.
   let redis: Redis;
 
   try {
     redis = getRedis();
+  } catch (error) {
+    console.error(
+      "[SAFE FOOD AI] Erro na configuração do Redis:",
+      error
+    );
 
+    return publicError(503);
+  }
+
+  // 5. Aplicar os limites antes de criar o pedido
+  // e antes de chamar a automação do Make.
+  try {
+    const blockedResponse = await checkRateLimits(
+      redis,
+      request
+    );
+
+    if (blockedResponse) {
+      return blockedResponse;
+    }
+  } catch (error) {
+    console.error(
+      "[SAFE FOOD AI] Falha ao verificar limites:",
+      error
+    );
+
+    // Se não conseguimos verificar a proteção,
+    // não enviamos o pedido ao Make.
+    return publicError(
+      503,
+      "A demonstração está temporariamente indisponível. Tente novamente mais tarde."
+    );
+  }
+
+  // 6. Gerar um identificador exclusivo.
+  const requestId = randomUUID();
+
+  const redisKey = `safefood:request:${requestId}`;
+
+  // 7. Registrar o pedido no Redis.
+  try {
     const initialStatus: RequestStatus = {
       status: "PROCESSANDO",
       createdAt: new Date().toISOString(),
@@ -137,8 +245,8 @@ export async function POST(request: Request) {
     return publicError(503);
   }
 
-  // 6. Configurar limite de espera apenas para
-  // a confirmação inicial de recebimento do Make.
+  // 8. Configurar limite de espera para a
+  // confirmação inicial de recebimento do Make.
   const controller = new AbortController();
 
   const timeout = setTimeout(() => {
@@ -146,7 +254,7 @@ export async function POST(request: Request) {
   }, MAKE_TIMEOUT_MS);
 
   try {
-    // 7. Enviar o pedido com o identificador.
+    // 9. Enviar o pedido com o identificador.
     const response = await fetch(webhookUrl, {
       method: "POST",
 
@@ -165,27 +273,34 @@ export async function POST(request: Request) {
       cache: "no-store",
     });
 
-    // 8. Verificar se o Make aceitou o pedido.
+    // 10. Verificar se o Make aceitou o pedido.
     if (!response.ok) {
       console.error(
         "[SAFE FOOD AI] Make retornou HTTP:",
         response.status
       );
 
-      await redis.set(
-        redisKey,
-        {
-          status: "FALHA",
-        },
-        {
-          ex: RESULT_TTL_SECONDS,
-        }
-      );
+      try {
+        await redis.set(
+          redisKey,
+          {
+            status: "FALHA",
+          },
+          {
+            ex: RESULT_TTL_SECONDS,
+          }
+        );
+      } catch (redisError) {
+        console.error(
+          "[SAFE FOOD AI] Falha ao atualizar status:",
+          redisError
+        );
+      }
 
       return publicError(502);
     }
 
-    // 9. Responder rapidamente ao aplicativo.
+    // 11. Responder rapidamente ao aplicativo.
     // O resultado final será consultado por outra rota.
     return NextResponse.json(
       {
