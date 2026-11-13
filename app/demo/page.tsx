@@ -228,6 +228,7 @@ function IPhone({
   return (
     <div className="mx-auto w-full max-w-[410px] min-w-0">
       <div className="relative w-full rounded-[44px] border-[6px] border-[#17181c] bg-[#17181c] p-[3px] shadow-[0_0_0_1px_#57585e,0_18px_35px_rgba(0,0,0,0.16),0_40px_85px_rgba(0,0,0,0.18)] sm:rounded-[56px] sm:border-[7px]">
+
         {/* Botões físicos decorativos */}
         <div className="pointer-events-none absolute -left-[9px] top-[17%] h-[5%] w-[3px] rounded-l bg-[#484950]" />
         <div className="pointer-events-none absolute -left-[9px] top-[25%] h-[9%] w-[3px] rounded-l bg-[#484950]" />
@@ -235,6 +236,7 @@ function IPhone({
         <div className="pointer-events-none absolute -right-[9px] top-[29%] h-[12%] w-[3px] rounded-r bg-[#484950]" />
 
         <div className="relative flex aspect-[440/956] min-h-0 flex-col overflow-hidden rounded-[36px] bg-[#f6f6f6] sm:rounded-[48px]">
+
           {/* Barra de status */}
           <div className="relative z-10 flex h-[13%] min-h-0 shrink-0 items-center justify-between bg-[#f6f6f6] px-[7%] pt-[2%] text-black">
             <span className="text-[clamp(10px,3vw,13px)] font-semibold tracking-tight">
@@ -267,6 +269,7 @@ function IPhone({
               <p className="truncate text-[clamp(11px,2.8vw,14px)] font-semibold text-black">
                 SAFE FOOD AI
               </p>
+
               <p className="truncate text-[clamp(9px,2.3vw,11px)] text-[#777]">
                 Avisos alimentares
               </p>
@@ -292,9 +295,8 @@ function IPhone({
               backgroundSize: "20px 20px",
             }}
           >
-            <div className="mx-auto shrink-0 rounded-lg bg-[#d9f2fb] px-3 py-2 text-center text-[10px] leading-relaxed text-[#54656f] shadow-sm">
-              SIMULAÇÃO DE WHATSAPP
-            </div>
+
+            {/* Aviso azul SIMULAÇÃO DE WHATSAPP removido */}
 
             <div className="mx-auto shrink-0 rounded-md bg-white/80 px-3 py-1 text-[10px] font-medium text-[#667781]">
               Hoje
@@ -598,8 +600,9 @@ export default function DemoPage() {
         {/* VISÃO DO CLIENTE */}
         <div className="mx-auto w-full min-w-0 max-w-[650px]">
           <header className="mb-10 text-center sm:mb-12">
-            {/* TÍTULO MAIOR E RESPONSIVO */}
-            <h1 className="flex flex-col items-center text-[clamp(38px,5vw,64px)] font-bold tracking-tight leading-[1.08]">
+
+            {/* Título ligeiramente maior */}
+            <h1 className="flex flex-col items-center text-[clamp(42px,5.5vw,68px)] font-bold tracking-tight leading-[1.08]">
               <span className="flex h-[1.2em] w-full items-center justify-center">
                 <span
                   key={mealIndex}
