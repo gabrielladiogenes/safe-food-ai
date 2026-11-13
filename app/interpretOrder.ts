@@ -11,6 +11,7 @@ type AnaliseInterna = {
   suspeita: boolean;
   suspeitaAlergia: boolean;
   suspeitaIntolerancia: boolean;
+  preocupacaoIncerta: boolean;
   conflito: boolean;
 };
 
@@ -25,66 +26,75 @@ function normalizar(texto: string): string {
 
 function dividirFrases(texto: string): string[] {
   return normalizar(texto)
-    .split(/[.!?;\n]+/)
+    .split(/[.!?;\n]+|\s+\bmas\b\s+|\s+\bporem\b\s+/)
     .map((frase) => frase.trim())
     .filter(Boolean);
 }
 
-// Reconhece expressões que indicam incerteza.
-function temSuspeita(frase: string): boolean {
-  return /\b(?:acho que|suspeito|suspeita|talvez|pode ser|nao sei se|nao tenho certeza|desconfio|possivelmente|aparentemente)\b/.test(
-    frase
-  );
-}
+const EXPRESSAO_SUSPEITA =
+  /\b(?:acho que|suspeito|suspeita|talvez|pode ser|nao sei se|nao tenho certeza|desconfio|possivelmente|aparentemente)\b/;
 
-// Remove declarações explicitamente negadas.
+const EXPRESSAO_REACAO =
+  /\b(?:me faz mal|me fazem mal|passo mal|me causa reacao|tenho reacao|me da reacao)\b/;
+
+const ALERGIA =
+  /\b(?:alergia|alergias|alergic[oa]s?)\b/;
+
+const INTOLERANCIA =
+  /\b(?:intolerancia|intolerancias|intolerantes?)\b/;
+
 function removerNegacoes(frase: string): string {
   return frase
     .replace(
-      /\b(?:nao tenho|nao possuo|nao apresento|sem)\s+(?:(?:nenhum[ao]?|qualquer|uma?|de)\s+)?(?:alergia|alergic[oa]|intolerancia|intolerante)(?:\s+(?:alimentar|alimentares))?(?:\s+(?:nem|ou|e)\s+(?:alergia|alergic[oa]|intolerancia|intolerante)(?:\s+(?:alimentar|alimentares))?)*\b/g,
+      /\b(?:nao tenho|nao possuo|nao apresento|sem)\s+(?:(?:nenhum[ao]s?|qualquer|uma?|de)\s+)?(?:alergias?|alergic[oa]s?|intolerancias?|intolerantes?)(?:\s+(?:alimentar|alimentares))?(?:\s+(?:nem|ou|e)\s+(?:alergias?|alergic[oa]s?|intolerancias?|intolerantes?)(?:\s+(?:alimentar|alimentares))?)*\b/g,
       ""
     )
     .replace(
-      /\bnao sou\s+(?:alergic[oa]|intolerante)(?:\s+(?:nem|ou|e)\s+(?:alergic[oa]|intolerante))*\b/g,
-      ""
-    )
-    .replace(
-      /\bsem\s+(?:(?:nenhum[ao]?|qualquer|uma?)\s+)?(?:alergia|intolerancia)\b/g,
+      /\bnao sou\s+(?:alergic[oa]s?|intolerantes?)(?:\s+(?:nem|ou|e)\s+(?:alergic[oa]s?|intolerantes?))*\b/g,
       ""
     );
 }
 
-// Identifica exclusões e restrições solicitadas.
 function temRestricaoInformada(texto: string): boolean {
-  const normalizado = normalizar(texto);
+  const frases = dividirFrases(texto);
 
-  return /\b(?:sem|retirar|remover|excluir|evitar|nao colocar|nao adicionar|nao incluir|substituir|trocar|separado|a parte|nao pode conter)\s+(?:o |a |os |as |um |uma |de |do |da )*[a-z]/.test(
-    normalizado
-  );
+  const padraoExclusao =
+    /\b(?:sem|retirar|remover|excluir|evitar|nao colocar|nao adicionar|nao incluir|substituir|trocar|separado|a parte|nao pode conter)\s+(?:(?:o|a|os|as|um|uma|de|do|da)\s+)*[a-z]/;
+
+  const padraoNegacaoDeAlteracao =
+    /\b(?:nao preciso|nao quero|nao desejo|nao necessito|nao precisa|nao e necessario|nao vou)\s+(?:de\s+)?(?:retirar|remover|excluir|evitar|substituir|trocar)\b/;
+
+  return frases.some((fraseOriginal) => {
+    const frase = removerNegacoes(fraseOriginal)
+      .replace(padraoNegacaoDeAlteracao, "")
+      .trim();
+
+    return padraoExclusao.test(frase);
+  });
 }
 
-function identificarCondicao(texto: string): AnaliseInterna {
+function identificarCondicao(
+  texto: string
+): AnaliseInterna {
   const frases = dividirFrases(texto);
 
   let alergia = false;
   let intolerancia = false;
   let suspeitaAlergia = false;
   let suspeitaIntolerancia = false;
+  let preocupacaoIncerta = false;
 
   for (const fraseOriginal of frases) {
     const frase = removerNegacoes(fraseOriginal);
 
-    const mencionaAlergia =
-      /\b(?:alergia|alergic[oa])\b/.test(frase);
-
+    const mencionaAlergia = ALERGIA.test(frase);
     const mencionaIntolerancia =
-      /\b(?:intolerancia|intolerante)\b/.test(frase);
+      INTOLERANCIA.test(frase);
 
-    if (!mencionaAlergia && !mencionaIntolerancia) {
-      continue;
-    }
+    const temDuvida = EXPRESSAO_SUSPEITA.test(frase);
+    const temReacao = EXPRESSAO_REACAO.test(frase);
 
-    if (temSuspeita(fraseOriginal)) {
+    if (temDuvida || temReacao) {
       if (mencionaAlergia) {
         suspeitaAlergia = true;
       }
@@ -93,7 +103,17 @@ function identificarCondicao(texto: string): AnaliseInterna {
         suspeitaIntolerancia = true;
       }
 
-      continue;
+      if (
+        temReacao ||
+        (temDuvida &&
+          (mencionaAlergia || mencionaIntolerancia))
+      ) {
+        preocupacaoIncerta = true;
+      }
+
+      if (temDuvida) {
+        continue;
+      }
     }
 
     if (mencionaAlergia) {
@@ -115,44 +135,217 @@ function identificarCondicao(texto: string): AnaliseInterna {
 
   return {
     selo,
-    suspeita: suspeitaAlergia || suspeitaIntolerancia,
+    suspeita:
+      suspeitaAlergia ||
+      suspeitaIntolerancia ||
+      preocupacaoIncerta,
     suspeitaAlergia,
     suspeitaIntolerancia,
+    preocupacaoIncerta,
     conflito: false,
   };
 }
 
-// Identifica situações em que o cliente solicita
-// um ingrediente e relata dúvida sobre consumi-lo.
-function identificarConflito(texto: string): boolean {
-  const normalizado = normalizar(texto);
+const INGREDIENTES = [
+  "leite",
+  "queijo",
+  "camarao",
+  "amendoim",
+  "ovo",
+  "gluten",
+  "trigo",
+  "soja",
+];
 
-  const indicaDuvida =
-    /\b(?:acho que|suspeito|talvez|nao sei se|nao tenho certeza|me faz mal|passo mal|desconfio)\b/.test(
-      normalizado
+function ingredienteDeclarado(
+  texto: string,
+  ingrediente: string
+): boolean {
+  const padrao = new RegExp(
+    `\\b(?:alergia|alergico|alergica)\\s+(?:(?:a|ao|aos|de|do|da)\\s+)?${ingrediente}\\b`
+  );
+
+  return dividirFrases(texto).some((frase) => {
+    const semNegacao = removerNegacoes(frase);
+
+    return (
+      !EXPRESSAO_SUSPEITA.test(semNegacao) &&
+      padrao.test(semNegacao)
     );
+  });
+}
 
-  if (!indicaDuvida) {
+function ingredienteSolicitado(
+  texto: string,
+  ingrediente: string
+): boolean {
+  const padrao = new RegExp(
+    `\\b(?:com|adicionar|colocar|incluir|quero|pedir|mais|extra)\\s+(?:(?:um|uma|pouco|pouca|mais|menos|de|do|da|o|a)\\s+)*${ingrediente}\\b|\\b${ingrediente}\\s+extra\\b`
+  );
+
+  const exclusao = new RegExp(
+    `\\b(?:sem|nao colocar|nao adicionar|nao incluir|retirar|remover|excluir)\\s+(?:(?:o|a|de|do|da)\\s+)*${ingrediente}\\b`
+  );
+
+  return (
+    !exclusao.test(texto) &&
+    padrao.test(texto)
+  );
+}
+
+// NOVA LÓGICA:
+// Classifica a atribuição de cada solicitação,
+// em vez de excluir globalmente um ingrediente
+// quando aparece a expressão "outra pessoa".
+
+type Destinatario =
+  | "PROPRIO_CLIENTE"
+  | "OUTRA_PESSOA"
+  | "INDEFINIDO";
+
+function identificarDestinatario(
+  frase: string
+): Destinatario {
+  const referenciaOutraPessoa =
+    /\b(?:outra pessoa|outro cliente|para meu amigo|para minha amiga|para meu marido|para minha esposa)\b/;
+
+  const referenciaProprioCliente =
+    /\b(?:meu|meus|minha|minhas|para mim|pra mim|eu vou comer|eu quero comer)\b/;
+
+  const outraPessoa =
+    referenciaOutraPessoa.test(frase);
+
+  const proprioCliente =
+    referenciaProprioCliente.test(frase);
+
+  // Se a frase mencionar ambos, não presumimos
+  // automaticamente a quem pertence o ingrediente.
+  if (outraPessoa && proprioCliente) {
+    return "INDEFINIDO";
+  }
+
+  if (outraPessoa) {
+    return "OUTRA_PESSOA";
+  }
+
+  if (proprioCliente) {
+    return "PROPRIO_CLIENTE";
+  }
+
+  return "INDEFINIDO";
+}
+
+function solicitacoesDoIngrediente(
+  texto: string,
+  ingrediente: string
+): Destinatario[] {
+  const frases = dividirFrases(texto);
+
+  return frases
+    .filter((frase) =>
+      ingredienteSolicitado(frase, ingrediente)
+    )
+    .map((frase) =>
+      identificarDestinatario(frase)
+    );
+}
+
+function identificarConflito(
+  texto: string
+): boolean {
+  const normalizado = normalizar(texto);
+  const frases = dividirFrases(normalizado);
+
+  // Verifica cada solicitação individualmente.
+  // A existência de um item para outra pessoa
+  // não pode ocultar um conflito do próprio cliente.
+
+  const conflitoAlergia = INGREDIENTES.some(
+    (ingrediente) => {
+      const alergiaDeclarada =
+        ingredienteDeclarado(
+          normalizado,
+          ingrediente
+        );
+
+      if (!alergiaDeclarada) {
+        return false;
+      }
+
+      const solicitacoes =
+        solicitacoesDoIngrediente(
+          normalizado,
+          ingrediente
+        );
+
+      if (solicitacoes.length === 0) {
+        return false;
+      }
+
+      // Existe conflito quando há solicitação
+      // atribuída ao cliente alérgico.
+      if (
+        solicitacoes.includes("PROPRIO_CLIENTE")
+      ) {
+        return true;
+      }
+
+      // Se todas as solicitações forem claramente
+      // destinadas a outra pessoa, não identificamos
+      // contradição direta com o cliente alérgico.
+      if (
+        solicitacoes.every(
+          (destinatario) =>
+            destinatario === "OUTRA_PESSOA"
+        )
+      ) {
+        return false;
+      }
+
+      // Solicitações sem destinatário explícito
+      // continuam sendo tratadas como possível
+      // contradição, exigindo esclarecimento.
+      return true;
+    }
+  );
+
+  if (conflitoAlergia) {
+    return true;
+  }
+
+  const temPreocupacao =
+    EXPRESSAO_SUSPEITA.test(normalizado) ||
+    EXPRESSAO_REACAO.test(normalizado);
+
+  if (!temPreocupacao) {
     return false;
   }
 
-  const ingredientes = [
-    "leite",
-    "queijo",
-    "camarao",
-    "amendoim",
-    "ovo",
-    "gluten",
-    "trigo",
-    "soja",
-  ];
+  return INGREDIENTES.some((ingrediente) => {
+    const mencionaIngredienteComPreocupacao =
+      frases.some(
+        (frase) =>
+          new RegExp(
+            `\\b${ingrediente}\\b`
+          ).test(frase) &&
+          (EXPRESSAO_SUSPEITA.test(frase) ||
+            EXPRESSAO_REACAO.test(frase))
+      );
 
-  return ingredientes.some((ingrediente) => {
-    const solicitaIngrediente = new RegExp(
-      `\\b(?:com|adicionar|colocar|incluir)\\s+(?:(?:um|uma|pouco|pouca|mais|menos|de)\\s+)*${ingrediente}\\b`
-    ).test(normalizado);
+    if (!mencionaIngredienteComPreocupacao) {
+      return false;
+    }
 
-    return solicitaIngrediente;
+    const solicitacoes =
+      solicitacoesDoIngrediente(
+        normalizado,
+        ingrediente
+      );
+
+    return solicitacoes.some(
+      (destinatario) =>
+        destinatario !== "OUTRA_PESSOA"
+    );
   });
 }
 
@@ -162,7 +355,6 @@ function gerarOrientacoes(
 ): string {
   const normalizado = normalizar(texto);
 
-  // PRIORIDADE 1: conflito entre solicitação e preocupação.
   if (analise.conflito) {
     return (
       "CONFIRMAÇÃO HUMANA OBRIGATÓRIA ANTES DO PREPARO. " +
@@ -179,7 +371,6 @@ function gerarOrientacoes(
     );
   }
 
-  // PRIORIDADE 2: suspeita de alergia.
   if (analise.suspeitaAlergia) {
     return (
       "CONFIRMAÇÃO HUMANA OBRIGATÓRIA ANTES DO PREPARO. " +
@@ -199,13 +390,11 @@ function gerarOrientacoes(
     );
   }
 
-  // PRIORIDADE 3: orientações gerais e contextuais.
   let orientacao =
     "Confira as especificações informadas pelo cliente " +
     "durante o preparo, a montagem, a identificação, " +
     "a embalagem e o transporte do pedido.";
 
-  // Pizza com parte sem queijo.
   if (
     normalizado.includes("pizza") &&
     normalizado.includes("sem queijo")
@@ -218,10 +407,7 @@ function gerarOrientacoes(
       "separadas podem ajudar a reduzir a transferência " +
       "entre os alimentos, mas não garantem ausência " +
       "de contato cruzado.";
-  }
-
-  // Esfihas com e sem queijo.
-  else if (
+  } else if (
     (normalizado.includes("esfiha") ||
       normalizado.includes("esfirra")) &&
     normalizado.includes("sem queijo")
@@ -231,10 +417,7 @@ function gerarOrientacoes(
       "e avalie embalagens separadas para reduzir " +
       "o contato entre os alimentos durante a montagem " +
       "e o transporte.";
-  }
-
-  // Exclusão de camarão.
-  else if (
+  } else if (
     normalizado.includes("camarao") &&
     (normalizado.includes("sem camarao") ||
       normalizado.includes("nao colocar camarao") ||
@@ -249,7 +432,6 @@ function gerarOrientacoes(
       "e o transporte.";
   }
 
-  // Declaração afirmativa de alergia.
   if (analise.selo === "ALERGIA DECLARADA") {
     orientacao +=
       " ATENÇÃO ADICIONAL: o cliente declarou alergia. " +
@@ -259,7 +441,6 @@ function gerarOrientacoes(
       "Não afirmar que o alimento é seguro ou livre de riscos.";
   }
 
-  // Declaração afirmativa de intolerância.
   if (analise.selo === "INTOLERÂNCIA DECLARADA") {
     orientacao +=
       " ATENÇÃO ADICIONAL: o cliente declarou intolerância. " +
@@ -269,7 +450,6 @@ function gerarOrientacoes(
       "sejam equivalentes.";
   }
 
-  // Suspeita de intolerância, sem declaração afirmativa.
   if (analise.suspeitaIntolerancia) {
     orientacao +=
       " ATENÇÃO: o cliente relatou suspeita de intolerância. " +
@@ -278,6 +458,19 @@ function gerarOrientacoes(
       "quando a dúvida afetar a composição do pedido. " +
       "O estabelecimento deve esclarecer a solicitação " +
       "pelos canais disponíveis na plataforma.";
+  }
+
+  if (
+    analise.preocupacaoIncerta &&
+    !analise.suspeitaAlergia &&
+    !analise.suspeitaIntolerancia
+  ) {
+    orientacao +=
+      " ATENÇÃO: o cliente relatou uma possível reação " +
+      "alimentar sem declarar uma condição específica. " +
+      "CONFIRMAÇÃO HUMANA OBRIGATÓRIA ANTES DO PREPARO. " +
+      "Esclarecer a solicitação com o cliente. " +
+      "Não presumir diagnóstico nem garantir segurança.";
   }
 
   return orientacao;
@@ -313,4 +506,3 @@ export function interpretarPedido(
 
   return foodAnalysisSchema.parse(resultado);
 }
-
