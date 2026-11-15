@@ -6,7 +6,7 @@
 </div>
 
 <p align="center">
-  <img src="docs/assets/SAFEFOOD-MOTION-900x300.gif" alt="SAFE FOOD AI — Animated Introduction" width="100%">
+  <img src="docs/assets/SAFEFOOD-MOTION.gif" alt="SAFE FOOD AI — Animated Introduction" width="100%">
 </p>
 
 <p>
@@ -210,11 +210,7 @@ The MVP follows an asynchronous processing workflow.
 </p>
 
 <p align="center">
-  <img
-    src="docs/assets/fluxo.png"
-    alt="SAFE FOOD AI — Technical Workflow"
-    width="100%"
-  >
+  <img src="docs/assets/fluxo.png" alt="SAFE FOOD AI — Technical Workflow" width="100%">
 </p>
 
 The application uses asynchronous status checks to retrieve the generated alert.
@@ -304,14 +300,14 @@ Implementation commit: `761f349`
 
 Clone the repository:
 
-```bash id="91a6w4"
+```bash
 git clone https://github.com/gabrielladiogenes/safe-food-ai.git
 cd safe-food-ai
 ```
 
 Install dependencies:
 
-```bash id="5p2vqn"
+```bash
 npm install
 ```
 
@@ -321,7 +317,7 @@ Do not commit `.env.local` or API secrets.
 
 Start the development server:
 
-```bash id="op2ld1"
+```bash
 npm run dev
 ```
 
@@ -333,7 +329,7 @@ http://localhost:3000
   <strong><big>Run Automated Tests</big></strong>
 </p>
 
-```bash id="vghbmu"
+```bash
 npx vitest run
 ```
 
@@ -341,7 +337,7 @@ npx vitest run
   <strong><big>Run Build and Lint Checks</big></strong>
 </p>
 
-```bash id="otbd94"
+```bash
 npm run build
 npm run lint
 ```
