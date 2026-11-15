@@ -4,9 +4,13 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { interpretarPedido } from "../interpretOrder";
+import {
+  bindPollDeadline,
+  pollRestaurantAlert,
+  sleepWithSignal,
+} from "../pollRestaurantAlert";
 
 const meals = ["café", "almoço", "lanche", "janta"];
-const POLLING_INTERVAL_MS = 3000;
 
 // Identidade visual SAFE FOOD AI
 const BRAND_RED = "#E10600";
@@ -316,12 +320,17 @@ export default function DemoPage() {
   const nextIdRef = useRef(1);
   const sendingRef = useRef(false);
   const mountedRef = useRef(true);
+  const pollAbortRef = useRef<AbortController | null>(null);
+  const stopPollDeadlineRef = useRef<(() => void) | null>(null);
 
   useEffect(() => {
     mountedRef.current = true;
 
     return () => {
       mountedRef.current = false;
+      pollAbortRef.current?.abort("unmount");
+      stopPollDeadlineRef.current?.();
+      stopPollDeadlineRef.current = null;
     };
   }, []);
 
@@ -334,78 +343,29 @@ export default function DemoPage() {
   }, []);
 
   async function waitForGemini(requestId: string): Promise<string> {
-    while (mountedRef.current) {
-      await new Promise<void>((resolve) => {
-        window.setTimeout(resolve, POLLING_INTERVAL_MS);
+    const controller = new AbortController();
+    const stopDeadline = bindPollDeadline(controller);
+
+    pollAbortRef.current = controller;
+    stopPollDeadlineRef.current = stopDeadline;
+
+    try {
+      return await pollRestaurantAlert({
+        requestId,
+        signal: controller.signal,
+        sleep: sleepWithSignal,
       });
+    } finally {
+      stopDeadline();
 
-      if (!mountedRef.current) {
-        throw new Error("Consulta interrompida.");
+      if (stopPollDeadlineRef.current === stopDeadline) {
+        stopPollDeadlineRef.current = null;
       }
 
-      let response: Response;
-
-      try {
-        response = await fetch(
-          `/api/restaurant-alert/${encodeURIComponent(requestId)}`,
-          {
-            method: "GET",
-            cache: "no-store",
-          }
-        );
-      } catch (error) {
-        console.warn(
-          "[SAFE FOOD AI] Consulta temporariamente indisponível:",
-          error
-        );
-        continue;
-      }
-
-      if (response.status >= 500) {
-        continue;
-      }
-
-      let data: ApiResponse;
-
-      try {
-        data = await response.json();
-      } catch {
-        continue;
-      }
-
-      if (!response.ok) {
-        throw new Error(
-          data.error || "Não foi possível consultar a solicitação."
-        );
-      }
-
-      if (data.status === "GERADO_PELO_GEMINI") {
-        if (
-          typeof data.mensagemIA === "string" &&
-          data.mensagemIA.trim()
-        ) {
-          return data.mensagemIA;
-        }
-
-        throw new Error(
-          "O Gemini concluiu a solicitação sem uma mensagem válida."
-        );
-      }
-
-      if (data.status === "ERRO" || data.status === "FALHA") {
-        throw new Error(
-          "Não foi possível concluir a geração do aviso alimentar."
-        );
-      }
-
-      if (data.status !== "PROCESSANDO") {
-        throw new Error(
-          "O servidor retornou um estado de processamento desconhecido."
-        );
+      if (pollAbortRef.current === controller) {
+        pollAbortRef.current = null;
       }
     }
-
-    throw new Error("Consulta interrompida.");
   }
 
   async function generateMessage() {
