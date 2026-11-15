@@ -1,0 +1,979 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SafeFood — Motion Design</title>
+
+<style>
+:root {
+  --red: #CE0004;
+  --navy: #0f172a;
+  --gray: #475569;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow-x: auto;
+}
+
+.stage {
+  position: relative;
+  width: 1200px;
+  height: 375px;
+  overflow: hidden;
+  background: #ffffff;
+  isolation: isolate;
+}
+
+/* MARCA */
+
+#brand-group {
+  position: absolute;
+  inset: 0;
+  opacity: 1;
+  transform: scale(1);
+  transform-origin: center;
+  will-change: opacity, transform;
+}
+
+#symbol-position {
+  position: absolute;
+  left: 600px;
+  top: 187.5px;
+  width: 190px;
+  height: 190px;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+  will-change: transform;
+}
+
+.symbol-layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+.symbol-image {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  image-rendering: auto;
+  backface-visibility: hidden;
+}
+
+#brand-rest {
+  position: absolute;
+  left: 600px;
+  top: 187.5px;
+  width: 520px;
+  height: 120px;
+  transform: translate(-50%, -50%);
+  object-fit: fill;
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
+  will-change: opacity, clip-path;
+}
+
+/* INTERFACE */
+
+#interface {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity, transform;
+}
+
+.interface-content {
+  width: 100%;
+  padding: 0 18px;
+  text-align: center;
+}
+
+#word-container {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#word {
+  display: inline-block;
+  color: var(--red);
+  font-size: 79px;
+  font-weight: 700;
+  letter-spacing: -3px;
+  line-height: 1.1;
+  opacity: 1;
+}
+
+.fixed {
+  color: var(--navy);
+  font-size: 67px;
+  font-weight: 700;
+  letter-spacing: -3px;
+  line-height: 1.12;
+  margin-top: 3px;
+  white-space: nowrap;
+}
+
+.subtitle {
+  width: max-content;
+  margin: 22px auto 0;
+  color: var(--gray);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.error {
+  display: none;
+  position: absolute;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background: #ffffff;
+  color: #991b1b;
+  text-align: center;
+  font-size: 22px;
+}
+</style>
+</head>
+
+<body>
+
+<main class="stage">
+
+  <div id="brand-group">
+
+    <div id="symbol-position">
+
+      <div id="layer-1" class="symbol-layer">
+        <img id="symbol-1" class="symbol-image" alt="S SafeFood">
+      </div>
+
+      <div id="layer-2" class="symbol-layer">
+        <img id="symbol-2" class="symbol-image" alt="S lateral">
+      </div>
+
+    </div>
+
+    <img id="brand-rest" alt="afeFood">
+
+  </div>
+
+  <section id="interface">
+
+    <div class="interface-content">
+
+      <div id="word-container">
+        <span id="word">café</span>
+      </div>
+
+      <div class="fixed">
+        do seu jeitinho.
+      </div>
+
+      <div class="subtitle">
+        envie as especificações do seu pedido para restaurantes a qualquer hora do dia.
+      </div>
+
+    </div>
+
+  </section>
+
+  <div class="error" id="error"></div>
+
+</main>
+
+<script>
+"use strict";
+
+/* =====================================
+   CONFIGURAÇÕES
+===================================== */
+
+const CONFIG = {
+  red: "#CE0004",
+
+  stageWidth: 1200,
+  stageHeight: 375,
+
+  symbolSize: 190,
+  brandWidth: 520,
+
+  // JPG 2 começa visível
+  initialPause: 1200,
+
+  // Giro levemente mais rápido
+  returnDuration: 780,
+
+  // Transição levemente mais rápida
+  crossfadeDuration: 475,
+  crossfadeDelay: 90,
+
+  // JPG 1 permanece visível por 1,5 s
+  firstImagePause: 1500,
+
+  // Orientação corrigida
+  secondImageAngle: 0,
+
+  // Formação da logo
+  shrinkDuration: 720,
+  lettersDelay: 240,
+  lettersDuration: 390,
+
+  brandPause: 900,
+
+  // Interface
+  brandExitDuration: 480,
+  interfaceEntryDuration: 540,
+
+  mealInterval: 1200,
+  mealCycles: 2
+};
+
+/* =====================================
+   ELEMENTOS
+===================================== */
+
+const sleep = ms =>
+  new Promise(resolve => setTimeout(resolve, ms));
+
+const $ = id => document.getElementById(id);
+
+const brandGroup = $("brand-group");
+const symbolPosition = $("symbol-position");
+
+const layer1 = $("layer-1");
+const layer2 = $("layer-2");
+
+const symbol1 = $("symbol-1");
+const symbol2 = $("symbol-2");
+
+const brandRest = $("brand-rest");
+const interfaceLayer = $("interface");
+
+const word = $("word");
+const errorBox = $("error");
+
+/* =====================================
+   CURVAS DE MOVIMENTO
+===================================== */
+
+const ROTATION_EASE =
+  "cubic-bezier(.45, 0, .20, 1)";
+
+const MORPH_EASE =
+  "cubic-bezier(.22, 1, .36, 1)";
+
+const FADE_EASE =
+  "cubic-bezier(.4, 0, .2, 1)";
+
+/* =====================================
+   MOTOR DE ANIMAÇÃO
+===================================== */
+
+function animate(
+  element,
+  frames,
+  duration,
+  easing = MORPH_EASE
+) {
+  return element.animate(frames, {
+    duration,
+    easing,
+    fill: "forwards"
+  });
+}
+
+/*
+  Salva o último estado visual antes
+  de cancelar a animação.
+*/
+
+async function finishAnimation(animation) {
+  await animation.finished;
+
+  const target = animation.effect.target;
+  const frames = animation.effect.getKeyframes();
+  const last = frames[frames.length - 1];
+
+  for (const [key, value] of Object.entries(last)) {
+    if (
+      key !== "offset" &&
+      key !== "easing" &&
+      key !== "composite" &&
+      key !== "computedOffset"
+    ) {
+      target.style[key] = value;
+    }
+  }
+
+  animation.cancel();
+}
+
+async function motion(
+  element,
+  frames,
+  duration,
+  easing = MORPH_EASE
+) {
+  await finishAnimation(
+    animate(element, frames, duration, easing)
+  );
+}
+
+/* =====================================
+   CARREGAMENTO DAS IMAGENS
+===================================== */
+
+function loadImage(path) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+
+    img.onload = () => resolve(img);
+
+    img.onerror = () =>
+      reject(
+        new Error(
+          "Não foi possível abrir " + path
+        )
+      );
+
+    img.src = path;
+  });
+}
+
+/* =====================================
+   EXTRAÇÃO DA ARTE VERMELHA
+===================================== */
+
+function isRed(r, g, b, a) {
+  return (
+    a > 30 &&
+    r > 95 &&
+    r > g * 1.35 &&
+    r > b * 1.25 &&
+    g < 185 &&
+    b < 185
+  );
+}
+
+function extractRedArtwork(img) {
+  const canvas = document.createElement("canvas");
+
+  canvas.width = img.naturalWidth;
+  canvas.height = img.naturalHeight;
+
+  const ctx = canvas.getContext("2d", {
+    willReadFrequently: true
+  });
+
+  ctx.drawImage(img, 0, 0);
+
+  const image = ctx.getImageData(
+    0,
+    0,
+    canvas.width,
+    canvas.height
+  );
+
+  const pixels = image.data;
+
+  let minX = canvas.width;
+  let minY = canvas.height;
+  let maxX = -1;
+  let maxY = -1;
+
+  const columns =
+    new Array(canvas.width).fill(0);
+
+  for (let y = 0; y < canvas.height; y++) {
+    for (let x = 0; x < canvas.width; x++) {
+
+      const i =
+        (y * canvas.width + x) * 4;
+
+      const r = pixels[i];
+      const g = pixels[i + 1];
+      const b = pixels[i + 2];
+      const a = pixels[i + 3];
+
+      if (isRed(r, g, b, a)) {
+
+        const alpha = Math.min(
+          1,
+          Math.max(
+            0,
+            (r - Math.max(g, b)) / 120
+          )
+        );
+
+        pixels[i] = 206;
+        pixels[i + 1] = 0;
+        pixels[i + 2] = 4;
+
+        pixels[i + 3] =
+          Math.round(a * alpha);
+
+        columns[x]++;
+
+        minX = Math.min(minX, x);
+        minY = Math.min(minY, y);
+        maxX = Math.max(maxX, x);
+        maxY = Math.max(maxY, y);
+
+      } else {
+        pixels[i + 3] = 0;
+      }
+    }
+  }
+
+  if (maxX < minX || maxY < minY) {
+    throw new Error(
+      "Não foi possível identificar o desenho vermelho."
+    );
+  }
+
+  ctx.putImageData(image, 0, 0);
+
+  return {
+    canvas,
+    columns,
+    bounds: {
+      x: minX,
+      y: minY,
+      width: maxX - minX + 1,
+      height: maxY - minY + 1
+    }
+  };
+}
+
+/* =====================================
+   RECORTE
+===================================== */
+
+function cropCanvas(source, bounds) {
+  const canvas = document.createElement("canvas");
+
+  canvas.width = bounds.width;
+  canvas.height = bounds.height;
+
+  canvas.getContext("2d").drawImage(
+    source,
+    bounds.x,
+    bounds.y,
+    bounds.width,
+    bounds.height,
+    0,
+    0,
+    bounds.width,
+    bounds.height
+  );
+
+  return canvas;
+}
+
+/* =====================================
+   IDENTIFICAÇÃO DA PRIMEIRA LETRA
+===================================== */
+
+function findFirstLetterEnd(art) {
+  const { bounds } = art;
+
+  const start = bounds.x;
+  const end = bounds.x + bounds.width;
+
+  let seenInk = false;
+  let gapStart = -1;
+
+  const minProgress =
+    bounds.width * .07;
+
+  const maxProgress =
+    bounds.width * .48;
+
+  for (let x = start; x < end; x++) {
+
+    const hasInk =
+      art.columns[x] > 0;
+
+    if (hasInk) {
+      seenInk = true;
+
+      if (gapStart >= 0) {
+
+        const gapLength =
+          x - gapStart;
+
+        if (
+          gapLength >= 3 &&
+          gapStart - start >= minProgress &&
+          gapStart - start <= maxProgress
+        ) {
+          return gapStart;
+        }
+      }
+
+      gapStart = -1;
+
+    } else if (
+      seenInk &&
+      gapStart < 0
+    ) {
+      gapStart = x;
+    }
+  }
+
+  return Math.round(
+    start + bounds.width * .22
+  );
+}
+
+/* =====================================
+   PREPARAÇÃO DA LOGO
+===================================== */
+
+let brandGeometry = null;
+
+async function prepareArtwork() {
+  const [img1, img2, img4] =
+    await Promise.all([
+      loadImage("assets/1.jpg"),
+      loadImage("assets/2.jpg"),
+      loadImage("assets/4.jpg")
+    ]);
+
+  const art1 =
+    extractRedArtwork(img1);
+
+  const art2 =
+    extractRedArtwork(img2);
+
+  const logoArt =
+    extractRedArtwork(img4);
+
+  symbol1.src = cropCanvas(
+    art1.canvas,
+    art1.bounds
+  ).toDataURL("image/png");
+
+  symbol2.src = cropCanvas(
+    art2.canvas,
+    art2.bounds
+  ).toDataURL("image/png");
+
+  const b = logoArt.bounds;
+
+  const splitX =
+    findFirstLetterEnd(logoArt);
+
+  const scale =
+    CONFIG.brandWidth / b.width;
+
+  const brandHeight =
+    b.height * scale;
+
+  const remaining =
+    cropCanvas(logoArt.canvas, b);
+
+  const removedWidth = Math.max(
+    0,
+    splitX - b.x
+  );
+
+  remaining.getContext("2d").clearRect(
+    0,
+    0,
+    removedWidth,
+    remaining.height
+  );
+
+  brandRest.src =
+    remaining.toDataURL("image/png");
+
+  brandRest.style.width =
+    CONFIG.brandWidth + "px";
+
+  brandRest.style.height =
+    brandHeight + "px";
+
+  const firstLetterWidth =
+    removedWidth * scale;
+
+  const logoLeft =
+    (CONFIG.stageWidth - CONFIG.brandWidth) / 2;
+
+  brandGeometry = {
+    targetX:
+      logoLeft + firstLetterWidth / 2,
+
+    targetY:
+      CONFIG.stageHeight / 2,
+
+    targetWidth:
+      firstLetterWidth,
+
+    targetHeight:
+      brandHeight
+  };
+
+  await Promise.all([
+    symbol1.decode(),
+    symbol2.decode(),
+    brandRest.decode()
+  ]);
+}
+
+/* =====================================
+   RESET
+===================================== */
+
+function reset() {
+  brandGroup.style.opacity = "1";
+  brandGroup.style.transform = "scale(1)";
+
+  symbolPosition.style.transform =
+    "translate(-50%, -50%)";
+
+  // JPG 1 começa invisível em +90°
+  layer1.style.opacity = "0";
+  layer1.style.transform =
+    "rotate(90deg)";
+
+  // JPG 2 começa visível
+  layer2.style.opacity = "1";
+  layer2.style.transform =
+    `rotate(${CONFIG.secondImageAngle}deg)`;
+
+  brandRest.style.opacity = "0";
+  brandRest.style.clipPath =
+    "inset(0 100% 0 0)";
+
+  interfaceLayer.style.opacity = "0";
+  interfaceLayer.style.transform = "none";
+
+  word.textContent = "café";
+  word.style.opacity = "1";
+}
+
+/* =====================================
+   CENA 1 — JPG 2
+===================================== */
+
+async function showSecondS() {
+  await sleep(CONFIG.initialPause);
+}
+
+/* =====================================
+   CENA 2 — TRANSIÇÃO SUAVE
+===================================== */
+
+async function rotateToFirstS() {
+  /*
+    JPG 1 começa a girar invisível.
+
+    Após 90 ms, as imagens fazem
+    uma transição simultânea.
+
+    O JPG 1 termina em 0°.
+  */
+
+  const rotation = animate(
+    layer1,
+    [
+      {
+        transform: "rotate(90deg)"
+      },
+      {
+        transform: "rotate(0deg)"
+      }
+    ],
+    CONFIG.returnDuration,
+    ROTATION_EASE
+  );
+
+  await sleep(CONFIG.crossfadeDelay);
+
+  const fadeOut = animate(
+    layer2,
+    [
+      { opacity: 1 },
+      { opacity: 0 }
+    ],
+    CONFIG.crossfadeDuration,
+    FADE_EASE
+  );
+
+  const fadeIn = animate(
+    layer1,
+    [
+      { opacity: 0 },
+      { opacity: 1 }
+    ],
+    CONFIG.crossfadeDuration,
+    FADE_EASE
+  );
+
+  await Promise.all([
+    finishAnimation(rotation),
+    finishAnimation(fadeOut),
+    finishAnimation(fadeIn)
+  ]);
+
+  // Estado final fixo
+  layer1.style.opacity = "1";
+  layer1.style.transform =
+    "rotate(0deg)";
+
+  layer2.style.opacity = "0";
+
+  // JPG 1 permanece por 1,5 segundo
+  await sleep(CONFIG.firstImagePause);
+}
+
+/* =====================================
+   CENA 3 — FORMAÇÃO DA LOGO
+===================================== */
+
+async function integrateBrand() {
+  const target = brandGeometry;
+
+  const deltaX =
+    target.targetX - 600;
+
+  const deltaY =
+    target.targetY - 187.5;
+
+  const scaleX =
+    target.targetWidth / CONFIG.symbolSize;
+
+  const scaleY =
+    target.targetHeight / CONFIG.symbolSize;
+
+  /*
+    Preserva a integração original.
+
+    JPG 1 diminui e se desloca.
+    Letras surgem durante o movimento.
+  */
+
+  const symbolAnimation = animate(
+    symbolPosition,
+    [
+      {
+        transform:
+          "translate(-50%, -50%) " +
+          "translate3d(0px, 0px, 0px) " +
+          "scale(1, 1)"
+      },
+      {
+        transform:
+          "translate(-50%, -50%) " +
+          `translate3d(${deltaX}px, ${deltaY}px, 0px) ` +
+          `scale(${scaleX}, ${scaleY})`
+      }
+    ],
+    CONFIG.shrinkDuration,
+    MORPH_EASE
+  );
+
+  await sleep(CONFIG.lettersDelay);
+
+  const lettersAnimation = animate(
+    brandRest,
+    [
+      {
+        opacity: 0,
+        clipPath:
+          "inset(0 100% 0 0)"
+      },
+      {
+        opacity: 1,
+        clipPath:
+          "inset(0 0% 0 0)"
+      }
+    ],
+    CONFIG.lettersDuration,
+    FADE_EASE
+  );
+
+  await Promise.all([
+    finishAnimation(symbolAnimation),
+    finishAnimation(lettersAnimation)
+  ]);
+
+  await sleep(CONFIG.brandPause);
+}
+
+/* =====================================
+   CENA 4 — INTERFACE
+===================================== */
+
+async function revealInterface() {
+  const brandExit = animate(
+    brandGroup,
+    [
+      {
+        opacity: 1,
+        transform: "scale(1)"
+      },
+      {
+        opacity: 0,
+        transform: "scale(.76)"
+      }
+    ],
+    CONFIG.brandExitDuration,
+    FADE_EASE
+  );
+
+  await sleep(130);
+
+  const interfaceEntry = animate(
+    interfaceLayer,
+    [
+      {
+        opacity: 0,
+        transform:
+          "translateY(12px) scale(.985)"
+      },
+      {
+        opacity: 1,
+        transform:
+          "translateY(0) scale(1)"
+      }
+    ],
+    CONFIG.interfaceEntryDuration,
+    MORPH_EASE
+  );
+
+  await Promise.all([
+    finishAnimation(brandExit),
+    finishAnimation(interfaceEntry)
+  ]);
+}
+
+/* =====================================
+   CENA 5 — PALAVRAS ANIMADAS
+===================================== */
+
+async function titleSequence() {
+  const meals = [
+    "café",
+    "almoço",
+    "lanche",
+    "janta"
+  ];
+
+  for (
+    let i = 0;
+    i < meals.length * CONFIG.mealCycles;
+    i++
+  ) {
+    word.textContent =
+      meals[i % meals.length];
+
+    const pulse = animate(
+      word,
+      [
+        { opacity: 1, offset: 0 },
+        { opacity: .5, offset: .5 },
+        { opacity: 1, offset: 1 }
+      ],
+      2000,
+      "cubic-bezier(.4, 0, .6, 1)"
+    );
+
+    await sleep(CONFIG.mealInterval);
+
+    pulse.cancel();
+    word.style.opacity = "1";
+  }
+}
+
+/* =====================================
+   FINALIZAÇÃO
+===================================== */
+
+async function finishLoop() {
+  await motion(
+    interfaceLayer,
+    [
+      {
+        opacity: 1,
+        transform:
+          "translateY(0) scale(1)"
+      },
+      {
+        opacity: 0,
+        transform:
+          "translateY(-8px) scale(.985)"
+      }
+    ],
+    440,
+    FADE_EASE
+  );
+}
+
+/* =====================================
+   EXECUÇÃO
+===================================== */
+
+async function play() {
+  try {
+    await prepareArtwork();
+
+    while (true) {
+      reset();
+
+      await showSecondS();
+      await rotateToFirstS();
+      await integrateBrand();
+      await revealInterface();
+      await titleSequence();
+      await finishLoop();
+    }
+
+  } catch (error) {
+    console.error(error);
+
+    errorBox.textContent =
+      "Erro ao preparar a animação: " +
+      error.message;
+
+    errorBox.style.display = "flex";
+  }
+}
+
+play();
+</script>
+
+</body>
+</html>
