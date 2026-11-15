@@ -1,4 +1,10 @@
 
+<div align="right">
+
+🇺🇸 | [🇧🇷](README.pt-BR.md)
+
+</div>
+
 # SAFE FOOD AI
 
 ### AI-Powered Food Order Communication & Restaurant Alerts
@@ -8,6 +14,46 @@
 The project explores how generative AI, workflow automation, and application development can improve communication between customers and food preparation teams.
 
 [**Live Demo**](https://safe-food-ai-mu.vercel.app/demo) | [**Technical Audit**](docs/CURSOR_TECHNICAL_AUDIT.md)
+
+---
+
+## Product Demonstration
+
+Watch SAFE FOOD AI in action — from customer-provided order specifications to the generation of contextual restaurant alerts.
+
+**Application Walkthrough**
+
+<!-- Replace the following line with the GitHub-generated video URL after uploading the MP4. Keep the URL on its own line to display the video player. -->
+
+VIDEO_URL_FROM_GITHUB
+
+*Functional MVP demonstration. The restaurant interface and WhatsApp destination are part of a controlled test environment.*
+
+---
+
+## Project Documentation
+
+The project documentation provides an in-depth account of the product's origin, design decisions, technical implementation, validation, limitations, and future development.
+
+Documentation is being organized in two languages:
+
+- **Português (pt-BR):** Technical report and development documentation in Portuguese.
+- **English (en):** Technical documentation and development report in English.
+
+### Documentation Chapters
+
+1. Project Overview and Origin
+2. Problem and Opportunity
+3. Product Experience and Design
+4. System Architecture and Integrations
+5. Development Journey
+6. AI Engineering and Automation
+7. Testing and Validation
+8. Security, Ethics, and Limitations
+9. Results and Impact
+10. Roadmap and Retrospective
+
+*Chapter links will be added as the corresponding documentation files are published.*
 
 ---
 
@@ -109,7 +155,15 @@ The application includes a dedicated polling module with:
 
 ## 5. System Architecture
 
-The MVP follows an asynchronous processing workflow:
+The MVP follows an asynchronous processing workflow.
+
+### Visual Architecture
+
+![SAFE FOOD AI — MVP System Architecture](docs/assets/safe-food-architecture.png)
+
+*The diagram illustrates the application's main processing stages, external integrations, request-state management, and test delivery channels.*
+
+### Technical Workflow
 
 ```text
 Customer
