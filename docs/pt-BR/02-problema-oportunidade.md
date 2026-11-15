@@ -105,7 +105,11 @@ As quatro dimensões representam uma estrutura analítica desenvolvida para orie
 
 ## 2.3 Necessidades dos públicos envolvidos
 
-Embora a insegurança do consumidor seja o problema central, sua possível redução depende também da capacidade do estabelecimento de compreender e avaliar as instruções recebidas.
+Embora a insegurança do consumidor seja o problema central, sua redução também depende das condições operacionais dos estabelecimentos. Mesmo quando existe a intenção de atender às necessidades individuais, fatores logísticos, limitações na organização dos processos e falhas de comunicação interna podem dificultar a interpretação, o encaminhamento e a execução das solicitações.
+
+Nesse contexto, o SAFE FOOD AI reconhece que os desafios não estão necessariamente associados à falta de atenção dos estabelecimentos, mas também à complexidade de transformar instruções individuais em ações coordenadas ao longo das diferentes etapas do pedido.
+
+A proposta busca atuar nessa lacuna, utilizando inteligência artificial e automação para apoiar a organização das informações, facilitar a comunicação operacional e contribuir para a resolução de problemas, sem substituir a avaliação e a responsabilidade humana.
 
 Por esse motivo, o SAFE FOOD AI considera necessidades complementares dos dois participantes da experiência.
 
@@ -441,19 +445,10 @@ Até o estágio documentado, não existem evidências suficientes para afirmar:
 
 Esses resultados permanecem como possibilidades de investigação futura.
 
-### 2.9.4 Implicações para a evolução do produto
-
-A distinção entre viabilidade técnica e validação de valor orienta os próximos ciclos de desenvolvimento.
-
-O funcionamento de uma solução demonstra que determinada abordagem pode ser implementada, mas não comprova, isoladamente, que ela atende de maneira satisfatória às necessidades dos usuários.
-
-Por esse motivo, a evolução do SAFE FOOD AI deverá considerar avaliações de usabilidade, compreensão das orientações, qualidade das respostas e percepção dos consumidores.
-
-A adoção de critérios explícitos de avaliação permitirá identificar limitações, revisar hipóteses e priorizar melhorias com base em evidências.
 
 ---
 
-## 2.10 Síntese da oportunidade
+## 2.9 Síntese da oportunidade
 
 A análise apresentada neste capítulo aprofunda o problema que motivou o desenvolvimento do SAFE FOOD AI.
 
