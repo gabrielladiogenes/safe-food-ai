@@ -564,11 +564,24 @@ function findFirstLetterEnd(art) {
 let brandGeometry = null;
 
 async function prepareArtwork() {
+
+  /*
+    CAMINHOS ATUALIZADOS PARA GITHUB
+
+    As imagens estão na mesma pasta
+    do arquivo index.html:
+
+    docs/motion/index.html
+    docs/motion/1.jpg
+    docs/motion/2.jpg
+    docs/motion/4.jpg
+  */
+
   const [img1, img2, img4] =
     await Promise.all([
-      loadImage("assets/1.jpg"),
-      loadImage("assets/2.jpg"),
-      loadImage("assets/4.jpg")
+      loadImage("1.jpg"),
+      loadImage("2.jpg"),
+      loadImage("4.jpg")
     ]);
 
   const art1 =
