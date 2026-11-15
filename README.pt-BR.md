@@ -188,7 +188,7 @@ A aplicação possui um módulo dedicado de consultas assíncronas com:
 
 <p align="center">
   <img
-    src="docs/assets/tabela-tecnologias.png"
+    src="docs/assets/tabela-tcnologias.png"
     alt="tabela-tecnologias.png"
     width="50%"
   >
