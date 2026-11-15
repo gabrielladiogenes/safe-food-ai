@@ -210,7 +210,7 @@ The MVP follows an asynchronous processing workflow.
 </p>
 
 <p align="center">
-  <img src="docs/assets/fluxo.png" alt="SAFE FOOD AI — Technical Workflow" width="100%">
+  <img src="docs/assets/Fluxo.png" alt="SAFE FOOD AI — Technical Workflow" width="100%">
 </p>
 
 The application uses asynchronous status checks to retrieve the generated alert.
