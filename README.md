@@ -15,7 +15,7 @@
 
 <h3>AI-Powered Food Order Communication & Restaurant Alerts</h3>
 
-**SAFE FOOD AI** is a functional MVP that transforms customer-provided dietary requirements and food order instructions into structured, actionable restaurant alerts.
+is a functional MVP that transforms customer-provided dietary requirements and food order instructions into structured, actionable restaurant alerts.
 
 The project explores how generative AI, workflow automation, and application development can improve communication between customers and food preparation teams.
 
