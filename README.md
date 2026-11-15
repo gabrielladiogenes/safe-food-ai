@@ -13,9 +13,11 @@
   <strong><big><big>SAFE FOOD AI</big></big></strong>
 </p>
 
-<h3>AI-Powered Food Order Communication & Restaurant Alerts</h3>
+<p>
+  <strong><big>AI-Powered Food Order Communication &amp; Restaurant Alerts</big></strong>
+</p>
 
-is a functional MVP that transforms customer-provided dietary requirements and food order instructions into structured, actionable restaurant alerts.
+**SAFE FOOD AI** is a functional MVP that transforms customer-provided dietary requirements and food order instructions into structured, actionable restaurant alerts.
 
 The project explores how generative AI, workflow automation, and application development can improve communication between customers and food preparation teams.
 
@@ -23,7 +25,9 @@ The project explores how generative AI, workflow automation, and application dev
 
 ---
 
-<h2>Project Documentation</h2>
+<p>
+  <strong><big><big>Project Documentation</big></big></strong>
+</p>
 
 The project documentation provides an in-depth account of the product's origin, design decisions, technical implementation, validation, limitations, and future development.
 
@@ -32,7 +36,9 @@ Documentation is being organized in two languages:
 - **Português (pt-BR):** Technical report and development documentation in Portuguese.
 - **English (en):** Technical documentation and development report in English.
 
-<h3>Documentation Chapters</h3>
+<p>
+  <strong><big>Documentation Chapters</big></strong>
+</p>
 
 1. Project Overview and Origin
 2. Problem and Opportunity
@@ -49,7 +55,9 @@ Documentation is being organized in two languages:
 
 ---
 
-<h2>1. The Problem</h2>
+<p>
+  <strong><big><big>1. The Problem</big></big></strong>
+</p>
 
 Food delivery orders may include allergies, intolerances, ingredient exclusions, and special preparation requests.
 
@@ -59,7 +67,9 @@ Incomplete or ambiguous communication may create additional risks during food pr
 
 SAFE FOOD AI explores a structured approach to communicating these requirements.
 
-<h2>2. The Solution</h2>
+<p>
+  <strong><big><big>2. The Solution</big></big></strong>
+</p>
 
 SAFE FOOD AI converts order information into restaurant-oriented alerts and contextual operational guidance.
 
@@ -77,7 +87,9 @@ The application is a communication-support tool, not a food safety certification
 
 ---
 
-<h2>Customer Interface</h2>
+<p>
+  <strong><big><big>Customer Interface</big></big></strong>
+</p>
 
 The customer-facing interface allows users to provide order details, dietary specifications, ingredient exclusions, and special preparation requests.
 
@@ -85,7 +97,9 @@ Each submission is processed independently, without requiring an account or pers
 
 <!-- Customer interface screenshot will be added here. -->
 
-<h2>Restaurant View & WhatsApp Test Delivery</h2>
+<p>
+  <strong><big><big>Restaurant View &amp; WhatsApp Test Delivery</big></big></strong>
+</p>
 
 Generated restaurant alerts are displayed in the application's simulated restaurant interface and delivered to a WhatsApp test destination through the integrated workflow.
 
@@ -95,9 +109,13 @@ These outputs demonstrate how structured order information and contextual AI-gen
 
 ---
 
-<h2>3. Key Features</h2>
+<p>
+  <strong><big><big>3. Key Features</big></big></strong>
+</p>
 
-<h3>Structured Order Interpretation</h3>
+<p>
+  <strong><big>Structured Order Interpretation</big></strong>
+</p>
 
 Processes customer-provided information about:
 
@@ -111,7 +129,9 @@ The application distinguishes between an ingredient exclusion and a declared med
 
 For example, requesting an item "without cheese" does not automatically mean the customer has a milk allergy.
 
-<h3>Contextual AI Guidance</h3>
+<p>
+  <strong><big>Contextual AI Guidance</big></strong>
+</p>
 
 Gemini generates contextual suggestions to support restaurant operations, including:
 
@@ -124,13 +144,17 @@ Gemini generates contextual suggestions to support restaurant operations, includ
 
 AI-generated suggestions supplement, rather than replace, human verification.
 
-<h3>Workflow Automation</h3>
+<p>
+  <strong><big>Workflow Automation</big></strong>
+</p>
 
 Make orchestrates the external AI-processing workflow.
 
 The application communicates with the automation flow and retrieves the resulting restaurant alert.
 
-<h3>WhatsApp Test Delivery</h3>
+<p>
+  <strong><big>WhatsApp Test Delivery</big></strong>
+</p>
 
 The integrated workflow has been tested to deliver the generated alert to:
 
@@ -139,7 +163,9 @@ The integrated workflow has been tested to deliver the generated alert to:
 
 These outputs were validated within the MVP's test environment.
 
-<h3>Controlled Asynchronous Polling</h3>
+<p>
+  <strong><big>Controlled Asynchronous Polling</big></strong>
+</p>
 
 The application includes a dedicated polling module with:
 
@@ -150,7 +176,9 @@ The application includes a dedicated polling module with:
 - Explicit processing-failure handling.
 - Cleanup when the component unmounts.
 
-<h2>4. Technology Stack</h2>
+<p>
+  <strong><big><big>4. Technology Stack</big></big></strong>
+</p>
 
 | Layer | Technologies |
 |---|---|
@@ -165,15 +193,21 @@ The application includes a dedicated polling module with:
 | Deployment | Vercel |
 | Version control | Git, GitHub |
 
-<h2>5. System Architecture</h2>
+<p>
+  <strong><big><big>5. System Architecture</big></big></strong>
+</p>
 
 The MVP follows an asynchronous processing workflow.
 
-<h3>Visual Architecture</h3>
+<p>
+  <strong><big>Visual Architecture</big></strong>
+</p>
 
 <!-- Add the architecture diagram after uploading it to docs/assets/ -->
 
-<h3>Technical Workflow</h3>
+<p>
+  <strong><big>Technical Workflow</big></strong>
+</p>
 
 ```text
 Customer
@@ -210,7 +244,9 @@ The application uses asynchronous status checks to retrieve the generated alert.
 
 The polling implementation includes timeout, cancellation, and failure-handling safeguards.
 
-<h2>6. AI Integration and Human Oversight</h2>
+<p>
+  <strong><big><big>6. AI Integration and Human Oversight</big></big></strong>
+</p>
 
 Generative AI is used to produce contextual operational recommendations based on order information.
 
@@ -226,7 +262,9 @@ Important principles include:
 
 The MVP does not independently verify restaurant ingredients, kitchen conditions, or food handling practices.
 
-<h2>7. Testing and Validation</h2>
+<p>
+  <strong><big><big>7. Testing and Validation</big></big></strong>
+</p>
 
 The project includes automated tests for order interpretation, API protection, and asynchronous restaurant-alert polling.
 
@@ -247,7 +285,9 @@ The automated tests use controlled scenarios and mocks. They do not independentl
 
 The Make, Gemini, and WhatsApp workflow was also tested end-to-end in the MVP environment.
 
-<h2>8. AI-Assisted Engineering with Cursor</h2>
+<p>
+  <strong><big><big>8. AI-Assisted Engineering with Cursor</big></big></strong>
+</p>
 
 Cursor AI was used to support a focused technical audit of the restaurant-alert polling implementation.
 
@@ -269,15 +309,21 @@ The implementation passed 37 automated tests and local build and lint validation
 
 Implementation commit: `761f349`
 
-<h2>9. Running Locally</h2>
+<p>
+  <strong><big><big>9. Running Locally</big></big></strong>
+</p>
 
-<h3>Prerequisites</h3>
+<p>
+  <strong><big>Prerequisites</big></strong>
+</p>
 
 - Node.js compatible with the project's Next.js version.
 - npm.
 - Access to the required external services and credentials for integrated workflows.
 
-<h3>Installation</h3>
+<p>
+  <strong><big>Installation</big></strong>
+</p>
 
 Clone the repository:
 
@@ -306,13 +352,17 @@ Open:
 
 http://localhost:3000
 
-<h3>Run Automated Tests</h3>
+<p>
+  <strong><big>Run Automated Tests</big></strong>
+</p>
 
 ```bash
 npx vitest run
 ```
 
-<h3>Run Build and Lint Checks</h3>
+<p>
+  <strong><big>Run Build and Lint Checks</big></strong>
+</p>
 
 ```bash
 npm run build
@@ -321,7 +371,9 @@ npm run lint
 
 Some integrated functionality requires correctly configured external services.
 
-<h2>10. Current Scope and Limitations</h2>
+<p>
+  <strong><big><big>10. Current Scope and Limitations</big></big></strong>
+</p>
 
 SAFE FOOD AI is a portfolio MVP and technical demonstration.
 
@@ -336,7 +388,9 @@ Current limitations include:
 
 The application should not be used as the sole basis for decisions about food allergy safety.
 
-<h2>11. Future Improvements</h2>
+<p>
+  <strong><big><big>11. Future Improvements</big></big></strong>
+</p>
 
 Potential next steps include:
 
@@ -350,7 +404,9 @@ Potential next steps include:
 
 These items represent potential improvements, not completed features.
 
-<h2>12. Project Purpose</h2>
+<p>
+  <strong><big><big>12. Project Purpose</big></big></strong>
+</p>
 
 SAFE FOOD AI was developed as a practical exploration of the intersection between generative AI, business processes, workflow automation, and application development.
 
