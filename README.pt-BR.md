@@ -17,9 +17,11 @@
   <strong><big>Comunicação Inteligente de Pedidos Alimentares e Alertas para Restaurantes</big></strong>
 </p>
 
-O **SAFE FOOD AI** é um MVP funcional que transforma restrições alimentares e instruções de pedidos fornecidas pelos clientes em avisos estruturados e orientações práticas para restaurantes.
+Inteligência artificial aplicada à segurança e à experiência alimentar
 
-O projeto explora como a inteligência artificial generativa, a automação de fluxos de trabalho e o desenvolvimento de aplicações podem melhorar a comunicação entre consumidores e equipes responsáveis pelo preparo de alimentos.
+**O SAFE FOOD AI** é um MVP de solução inteligente que combina IA generativa, automação e interpretação estruturada de dados para transformar restrições alimentares e instruções de pedidos em alertas operacionais claros e recomendações contextualizadas para restaurantes.
+
+Com foco na experiência do consumidor, prevenção de riscos e eficiência operacional, o projeto busca reduzir falhas de comunicação ao longo da jornada do pedido, do preparo à entrega, apoiando decisões mais informadas e práticas de cuidado, com supervisão humana em situações críticas.
 
 [**Demonstração ao vivo**](https://safe-food-ai-mu.vercel.app/demo) | [**Auditoria técnica**](docs/CURSOR_TECHNICAL_AUDIT.md)
 
@@ -93,6 +95,7 @@ A interface permite que os usuários informem os detalhes do pedido, suas especi
 
 Cada envio é processado de maneira independente, sem exigir uma conta ou perfil alimentar persistente.
 
+
 <p align="center">
   <img
     src="docs/assets/customer-interface%20.png"
@@ -105,7 +108,7 @@ Cada envio é processado de maneira independente, sem exigir uma conta ou perfil
   <strong><big><big>Visualização do Restaurante e Envio de Testes pelo WhatsApp</big></big></strong>
 </p>
 
-Os avisos alimentares gerados são apresentados na interface simulada do restaurante e enviados a um destino de testes no WhatsApp por meio do fluxo simultâneo integrado.
+Os avisos alimentares gerados são apresentados na interface simulada do restaurante e enviados a um destino de testes no WhatsApp por meio do fluxo integrado.
 
 Essas saídas demonstram como informações estruturadas dos pedidos e orientações contextualizadas por IA podem apoiar a comunicação operacional dos restaurantes.
 
