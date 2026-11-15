@@ -14,12 +14,12 @@
 </p>
 
 <p>
-  <strong><big>AI-Powered Food Order Communication &amp; Restaurant Alerts</big></strong>
+  <strong><big>Artificial intelligence applied to food safety and customer experience</big></strong>
 </p>
 
-**SAFE FOOD AI** is a functional MVP that transforms customer-provided dietary requirements and food order instructions into structured, actionable restaurant alerts.
+**SAFE FOOD AI** is a functional MVP that combines **generative AI, workflow automation, and structured data interpretation** to transform dietary requirements and food order instructions into clear operational alerts and contextual recommendations for restaurants.
 
-The project explores how generative AI, workflow automation, and application development can improve communication between customers and food preparation teams.
+Focused on **customer experience, risk prevention, and operational efficiency**, the project aims to reduce communication gaps throughout the order journey — from preparation to delivery — supporting more informed decisions and responsible food handling practices, with human oversight in safety-critical situations.
 
 [**Live Demo**](https://safe-food-ai-mu.vercel.app/demo) | [**Technical Audit**](docs/CURSOR_TECHNICAL_AUDIT.md)
 
@@ -244,7 +244,11 @@ The MVP does not independently verify restaurant ingredients, kitchen conditions
   <strong><big><big>7. Testing and Validation</big></big></strong>
 </p>
 
-The project includes automated tests for order interpretation, API protection, and asynchronous restaurant-alert polling.
+The project includes **37 automated tests**, covering:
+
+- 21 order interpretation tests.
+- 8 restaurant alert API protection tests.
+- 8 polling tests.
 
 <p align="center">
   <img
