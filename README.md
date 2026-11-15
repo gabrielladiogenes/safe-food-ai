@@ -1,19 +1,17 @@
 
-
-
 <div align="right">
 
 **English** | [Português](README.pt-BR.md)
 
 </div>
 
-</div>
-
 <p align="center">
-  <img src="docs/assets/SafeFood-motion.gif" alt="SAFE FOOD AI — Animated Introduction" width="100%">
+  <img src="docs/assets/SAFEFOOD-MOTION.gif" alt="SAFE FOOD AI — Animated Introduction" width="100%">
 </p>
 
-<h1>SAFE FOOD AI</h1>
+<p>
+  <strong><big><big>SAFE FOOD AI</big></big></strong>
+</p>
 
 <h3>AI-Powered Food Order Communication & Restaurant Alerts</h3>
 
