@@ -188,7 +188,7 @@ A aplicação possui um módulo dedicado de consultas assíncronas com:
 
 <p align="center">
   <img
-    src="docs/assets/tabela-tecnologias.png"
+    src="./docs/assets/tabela-tecnologias.png"
     alt="SAFE FOOD AI — Tecnologias utilizadas no projeto"
     width="50%"
   >
