@@ -6,7 +6,7 @@
 </div>
 
 <p align="center">
-  <img src="docs/assets/TELA-INICIO-README.gif" alt="SAFE FOOD AI — Animated Introduction" width="100%">
+  <img src="docs/assets/INICIO-README.gif" alt="SAFE FOOD AI — Animated Introduction" width="100%">
 </p>
 
 <h1>SAFE FOOD AI</h1>
