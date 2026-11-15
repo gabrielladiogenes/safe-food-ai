@@ -95,7 +95,13 @@ The customer-facing interface allows users to provide order details, dietary spe
 
 Each submission is processed independently, without requiring an account or persistent dietary profile.
 
-<!-- Customer interface screenshot will be added here. -->
+<p align="center">
+  <img
+    src="docs/assets/customer-interface.png"
+    alt="SAFE FOOD AI — Customer order form and simulated restaurant messaging interface"
+    width="100%"
+  >
+</p>
 
 <p>
   <strong><big><big>Restaurant View &amp; WhatsApp Test Delivery</big></big></strong>
