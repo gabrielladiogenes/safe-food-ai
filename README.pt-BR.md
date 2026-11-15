@@ -79,9 +79,7 @@ O MVP combina:
 - Interpretação de declarações alimentares baseada em regras.
 - Recomendações geradas por inteligência artificial.
 - Execução automatizada de fluxos de trabalho.
-- Entrega de avisos por meio de uma interface simulada do restaurante e de um destino de testes no WhatsApp.
-
-Cada solicitação é processada individualmente, sem exigir cadastro ou armazenamento de um perfil alimentar persistente.
+- Entrega de avisos por meio de uma interface simulada do restaurante e de um destino de testes no WhatsApp simultaneamente.
 
 A aplicação funciona como uma ferramenta de apoio à comunicação, não como um sistema de certificação de segurança alimentar.
 
@@ -91,7 +89,7 @@ A aplicação funciona como uma ferramenta de apoio à comunicação, não como 
   <strong><big><big>Interface do Cliente</big></big></strong>
 </p>
 
-A interface permite que os usuários informem os detalhes do pedido, suas especificações alimentares, exclusões de ingredientes e solicitações especiais de preparo.
+A interface permite que os usuários informem os detalhes do pedido, suas especificações, exclusões de ingredientes e solicitações especiais de preparo.
 
 Cada envio é processado de maneira independente, sem exigir uma conta ou perfil alimentar persistente.
 
@@ -107,7 +105,7 @@ Cada envio é processado de maneira independente, sem exigir uma conta ou perfil
   <strong><big><big>Visualização do Restaurante e Envio de Testes pelo WhatsApp</big></big></strong>
 </p>
 
-Os avisos alimentares gerados são apresentados na interface simulada do restaurante e enviados a um destino de testes no WhatsApp por meio do fluxo integrado.
+Os avisos alimentares gerados são apresentados na interface simulada do restaurante e enviados a um destino de testes no WhatsApp por meio do fluxo simultâneo integrado.
 
 Essas saídas demonstram como informações estruturadas dos pedidos e orientações contextualizadas por IA podem apoiar a comunicação operacional dos restaurantes.
 
@@ -188,7 +186,7 @@ A aplicação possui um módulo dedicado de consultas assíncronas com:
 
 <p align="center">
   <img
-    src="docs/assets/tabela-tecnologias.png"
+    src="docs/assets/tabela-tecnlogias.png"
     alt="SAFE FOOD AI — Tecnologias utilizadas no projeto"
     width="50%"
   >
@@ -396,4 +394,3 @@ O projeto demonstra o planejamento, a implementação e a validação de um flux
 **Desenvolvido por Gabriella Diógenes**
 
 [Perfil no GitHub](https://github.com/gabrielladiogenes) | [Demonstração ao vivo](https://safe-food-ai-mu.vercel.app/demo)
-
