@@ -97,7 +97,7 @@ Each submission is processed independently, without requiring an account or pers
 
 <p align="center">
   <img
-    src="docs/assets/customer-interface.png"
+    src="docs/assets/customer-interface%20.png"
     alt="SAFE FOOD AI — Customer order form and simulated restaurant messaging interface"
     width="100%"
   >
