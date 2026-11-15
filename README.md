@@ -190,7 +190,7 @@ The application includes a dedicated polling module with:
   <img
     src="docs/assets/tabela-tecnology.png"
     alt="SAFE FOOD AI — Technology Stack"
-    width="100%"
+    width="50%"
   >
 </p>
 
@@ -250,7 +250,7 @@ The project includes automated tests for order interpretation, API protection, a
   <img
     src="docs/assets/aprove-test.png"
     alt="SAFE FOOD AI — Automated Testing Results: 37 Tests Passed"
-    width="100%"
+    width="50%"
   >
 </p>
 
