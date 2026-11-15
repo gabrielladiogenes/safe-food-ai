@@ -1,12 +1,16 @@
 
+
+
 <div align="right">
 
-🇺🇸 | [🇧🇷](README.pt-BR.md)
+**English** | [Português](README.pt-BR.md)
+
+</div>
 
 </div>
 
 <p align="center">
-  <img src="docs/assets/INICIO-README.gif" alt="SAFE FOOD AI — Animated Introduction" width="100%">
+  <img src="docs/assets/SAFEFOOD-MOTION-README.gif" alt="SAFE FOOD AI — Animated Introduction" width="100%">
 </p>
 
 <h1>SAFE FOOD AI</h1>
@@ -175,31 +179,31 @@ The MVP follows an asynchronous processing workflow.
 
 ```text
 Customer
-   |
-   v
+  |
+  v
 SAFE FOOD AI
 Next.js Application
-   |
-   v
+  |
+  v
 Order Interpretation
 & Restaurant Alert Request
-   |
-   v
+  |
+  v
 Application API
-   |
-   v
+  |
+  v
 Make Automation
-   |
-   v
+  |
+  v
 Gemini
 Contextual AI Guidance
-   |
-   v
+  |
+  v
 Generated Restaurant Alert
-   |
-   +------------------------+
-   |                        |
-   v                        v
+  |
+  +------------------------+
+  |                        |
+  v                        v
 Application Demo       WhatsApp Test
 Restaurant View        Destination
 ```
