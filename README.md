@@ -10,7 +10,7 @@
 </div>
 
 <p align="center">
-  <img src="docs/assets/SAFEFOOD-MOTION-README.gif" alt="SAFE FOOD AI — Animated Introduction" width="100%">
+  <img src="docs/assets/SafeFood-motion.gif" alt="SAFE FOOD AI — Animated Introduction" width="100%">
 </p>
 
 <h1>SAFE FOOD AI</h1>
