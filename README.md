@@ -186,18 +186,13 @@ The application includes a dedicated polling module with:
   <strong><big><big>4. Technology Stack</big></big></strong>
 </p>
 
-| Layer | Technologies |
-|---|---|
-| Frontend | Next.js, React, TypeScript |
-| Styling | Tailwind CSS |
-| Generative AI | Google Gemini |
-| Workflow automation | Make |
-| Messaging integration | WhatsApp test destination |
-| Request-state management | Upstash Redis |
-| Automated testing | Vitest |
-| AI-assisted development | Cursor AI |
-| Deployment | Vercel |
-| Version control | Git, GitHub |
+<p align="center">
+  <img
+    src="docs/assets/tabela-tecnology.png"
+    alt="SAFE FOOD AI — Technology Stack"
+    width="100%"
+  >
+</p>
 
 <p>
   <strong><big><big>5. System Architecture</big></big></strong>
@@ -216,7 +211,11 @@ The MVP follows an asynchronous processing workflow.
 </p>
 
 <p align="center">
-  <img src="docs/assets/fluxo.png" alt="SAFE FOOD AI — Technical Workflow" width="100%">
+  <img
+    src="docs/assets/fluxo.png"
+    alt="SAFE FOOD AI — Technical Workflow"
+    width="100%"
+  >
 </p>
 
 The application uses asynchronous status checks to retrieve the generated alert.
@@ -247,12 +246,13 @@ The MVP does not independently verify restaurant ingredients, kitchen conditions
 
 The project includes automated tests for order interpretation, API protection, and asynchronous restaurant-alert polling.
 
-| Test Suite | Tests | Result |
-|---|---:|---|
-| Order interpretation | 21 | Passed |
-| Restaurant alert API protection | 8 | Passed |
-| Restaurant alert polling | 8 | Passed |
-| **Total** | **37** | **Passed** |
+<p align="center">
+  <img
+    src="docs/assets/aprove-test.png"
+    alt="SAFE FOOD AI — Automated Testing Results: 37 Tests Passed"
+    width="100%"
+  >
+</p>
 
 Local validation also included:
 
