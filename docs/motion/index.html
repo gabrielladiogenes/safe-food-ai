@@ -41,7 +41,9 @@ body {
   isolation: isolate;
 }
 
-/* MARCA */
+/* =====================================
+   MARCA
+===================================== */
 
 #brand-group {
   position: absolute;
@@ -95,7 +97,9 @@ body {
   will-change: opacity, clip-path;
 }
 
-/* INTERFACE */
+/* =====================================
+   INTERFACE
+===================================== */
 
 #interface {
   position: absolute;
@@ -151,6 +155,10 @@ body {
   white-space: nowrap;
 }
 
+/* =====================================
+   ERROS
+===================================== */
+
 .error {
   display: none;
   position: absolute;
@@ -175,11 +183,19 @@ body {
     <div id="symbol-position">
 
       <div id="layer-1" class="symbol-layer">
-        <img id="symbol-1" class="symbol-image" alt="S SafeFood">
+        <img
+          id="symbol-1"
+          class="symbol-image"
+          alt="S SafeFood"
+        >
       </div>
 
       <div id="layer-2" class="symbol-layer">
-        <img id="symbol-2" class="symbol-image" alt="S lateral">
+        <img
+          id="symbol-2"
+          class="symbol-image"
+          alt="S lateral"
+        >
       </div>
 
     </div>
@@ -231,14 +247,14 @@ const CONFIG = {
   // JPG 2 começa visível
   initialPause: 1200,
 
-  // Giro levemente mais rápido
+  // Giro suave e levemente acelerado
   returnDuration: 780,
 
-  // Transição levemente mais rápida
+  // Transição entre os dois S
   crossfadeDuration: 475,
   crossfadeDelay: 90,
 
-  // JPG 1 permanece visível por 1,5 s
+  // JPG 1 permanece por 1,5 segundo
   firstImagePause: 1500,
 
   // Orientação corrigida
@@ -314,8 +330,10 @@ function animate(
 }
 
 /*
-  Salva o último estado visual antes
+  Preserva o estado final antes
   de cancelar a animação.
+
+  Evita saltos entre as cenas.
 */
 
 async function finishAnimation(animation) {
@@ -566,10 +584,9 @@ let brandGeometry = null;
 async function prepareArtwork() {
 
   /*
-    CAMINHOS ATUALIZADOS PARA GITHUB
+    CAMINHOS PARA GITHUB PAGES
 
-    As imagens estão na mesma pasta
-    do arquivo index.html:
+    Todos os arquivos estão em:
 
     docs/motion/index.html
     docs/motion/1.jpg
@@ -676,12 +693,12 @@ function reset() {
   symbolPosition.style.transform =
     "translate(-50%, -50%)";
 
-  // JPG 1 começa invisível em +90°
+  // JPG 1 invisível e rotacionado
   layer1.style.opacity = "0";
   layer1.style.transform =
     "rotate(90deg)";
 
-  // JPG 2 começa visível
+  // JPG 2 visível no início
   layer2.style.opacity = "1";
   layer2.style.transform =
     `rotate(${CONFIG.secondImageAngle}deg)`;
@@ -706,17 +723,16 @@ async function showSecondS() {
 }
 
 /* =====================================
-   CENA 2 — TRANSIÇÃO SUAVE
+   CENA 2 — GIRO PARA JPG 1
 ===================================== */
 
 async function rotateToFirstS() {
   /*
-    JPG 1 começa a girar invisível.
+    JPG 1 gira enquanto aparece.
 
-    Após 90 ms, as imagens fazem
-    uma transição simultânea.
-
-    O JPG 1 termina em 0°.
+    As imagens permanecem em
+    camadas independentes para
+    evitar inversões e piscadas.
   */
 
   const rotation = animate(
@@ -761,14 +777,13 @@ async function rotateToFirstS() {
     finishAnimation(fadeIn)
   ]);
 
-  // Estado final fixo
   layer1.style.opacity = "1";
   layer1.style.transform =
     "rotate(0deg)";
 
   layer2.style.opacity = "0";
 
-  // JPG 1 permanece por 1,5 segundo
+  // Pausa de 1,5 segundo
   await sleep(CONFIG.firstImagePause);
 }
 
@@ -792,10 +807,10 @@ async function integrateBrand() {
     target.targetHeight / CONFIG.symbolSize;
 
   /*
-    Preserva a integração original.
+    O JPG 1 diminui e se desloca.
 
-    JPG 1 diminui e se desloca.
-    Letras surgem durante o movimento.
+    O restante da logo surge
+    durante a transformação.
   */
 
   const symbolAnimation = animate(
@@ -847,7 +862,7 @@ async function integrateBrand() {
 }
 
 /* =====================================
-   CENA 4 — INTERFACE
+   CENA 4 — TRANSIÇÃO PARA INTERFACE
 ===================================== */
 
 async function revealInterface() {
@@ -932,7 +947,7 @@ async function titleSequence() {
 }
 
 /* =====================================
-   FINALIZAÇÃO
+   FINALIZAÇÃO DO CICLO
 ===================================== */
 
 async function finishLoop() {
