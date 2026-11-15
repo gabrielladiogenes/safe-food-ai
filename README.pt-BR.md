@@ -14,51 +14,49 @@
 </p>
 
 <p>
-  <strong><big>Comunicação Inteligente de Pedidos Alimentares e Alertas para Restaurantes</big></strong>
+  <strong><big>Inteligência artificial aplicada à segurança e à experiência alimentar</big></strong>
 </p>
 
-Inteligência artificial aplicada à segurança e à experiência alimentar
+O **SAFE FOOD AI** é um MVP de solução inteligente que combina **IA generativa, automação e interpretação estruturada de dados** para transformar restrições alimentares e instruções de pedidos em alertas operacionais claros e recomendações contextualizadas para restaurantes.
 
-**O SAFE FOOD AI** é um MVP de solução inteligente que combina IA generativa, automação e interpretação estruturada de dados para transformar restrições alimentares e instruções de pedidos em alertas operacionais claros e recomendações contextualizadas para restaurantes.
-
-Com foco na experiência do consumidor, prevenção de riscos e eficiência operacional, o projeto busca reduzir falhas de comunicação ao longo da jornada do pedido, do preparo à entrega, apoiando decisões mais informadas e práticas de cuidado, com supervisão humana em situações críticas.
+Com foco na **experiência do consumidor, prevenção de riscos e eficiência operacional**, o projeto busca reduzir falhas de comunicação ao longo da jornada do pedido — do preparo à entrega —, apoiando decisões mais informadas e práticas de cuidado, com supervisão humana em situações críticas.
 
 [**Demonstração ao vivo**](https://safe-food-ai-mu.vercel.app/demo) | [**Auditoria técnica**](docs/CURSOR_TECHNICAL_AUDIT.md)
 
 ---
 
 <p>
-  <strong><big><big>Documentação do Projeto</big></big></strong>
+  <strong><big><big>Documentação do projeto</big></big></strong>
 </p>
 
 A documentação apresenta, de maneira aprofundada, a origem do produto, as decisões de design, a implementação técnica, os processos de validação, as limitações e as possibilidades de evolução.
 
 A documentação está sendo organizada em dois idiomas:
 
-- **Português (pt-BR):** Relatório técnico e documentação do desenvolvimento em português.
-- **Inglês (en):** Documentação técnica e relatório de desenvolvimento em inglês.
+- **Português (pt-BR):** relatório técnico e documentação do desenvolvimento em português.
+- **Inglês (en):** documentação técnica e relatório de desenvolvimento em inglês.
 
 <p>
-  <strong><big>Capítulos da Documentação</big></strong>
+  <strong><big>Capítulos da documentação</big></strong>
 </p>
 
-1. Visão Geral e Origem do Projeto
-2. Problema e Oportunidade
-3. Experiência do Produto e Design
-4. Arquitetura do Sistema e Integrações
-5. Jornada de Desenvolvimento
-6. Engenharia de IA e Automação
-7. Testes e Validação
-8. Segurança, Ética e Limitações
-9. Resultados e Impacto
-10. Roadmap e Retrospectiva
+1. Visão geral e origem do projeto
+2. Problema e oportunidade
+3. Experiência do produto e design
+4. Arquitetura do sistema e integrações
+5. Jornada de desenvolvimento
+6. Engenharia de IA e automação
+7. Testes e validação
+8. Segurança, ética e limitações
+9. Resultados e impacto
+10. Roadmap e retrospectiva
 
 *Os links dos capítulos serão adicionados conforme os respectivos documentos forem publicados.*
 
 ---
 
 <p>
-  <strong><big><big>1. O Problema</big></big></strong>
+  <strong><big><big>1. O problema</big></big></strong>
 </p>
 
 Pedidos realizados por aplicativos de delivery podem incluir alergias, intolerâncias, exclusões de ingredientes e solicitações específicas de preparo.
@@ -70,7 +68,7 @@ Uma comunicação incompleta ou ambígua pode gerar riscos adicionais durante o 
 O SAFE FOOD AI explora uma abordagem estruturada para comunicar essas necessidades.
 
 <p>
-  <strong><big><big>2. A Solução</big></big></strong>
+  <strong><big><big>2. A solução</big></big></strong>
 </p>
 
 O SAFE FOOD AI transforma as informações dos pedidos em avisos direcionados aos restaurantes e orientações operacionais contextualizadas.
@@ -81,20 +79,21 @@ O MVP combina:
 - Interpretação de declarações alimentares baseada em regras.
 - Recomendações geradas por inteligência artificial.
 - Execução automatizada de fluxos de trabalho.
-- Entrega de avisos por meio de uma interface simulada do restaurante e de um destino de testes no WhatsApp simultaneamente.
+- Entrega de avisos por meio de uma interface simulada do restaurante e de um destino de testes no WhatsApp.
+
+Cada solicitação é processada individualmente, sem exigir cadastro ou armazenamento de um perfil alimentar persistente.
 
 A aplicação funciona como uma ferramenta de apoio à comunicação, não como um sistema de certificação de segurança alimentar.
 
 ---
 
 <p>
-  <strong><big><big>Interface do Cliente</big></big></strong>
+  <strong><big><big>Interface do cliente</big></big></strong>
 </p>
 
-A interface permite que os usuários informem os detalhes do pedido, suas especificações, exclusões de ingredientes e solicitações especiais de preparo.
+A interface permite que os usuários informem os detalhes do pedido, suas especificações alimentares, exclusões de ingredientes e solicitações especiais de preparo.
 
 Cada envio é processado de maneira independente, sem exigir uma conta ou perfil alimentar persistente.
-
 
 <p align="center">
   <img
@@ -105,7 +104,7 @@ Cada envio é processado de maneira independente, sem exigir uma conta ou perfil
 </p>
 
 <p>
-  <strong><big><big>Visualização do Restaurante e Envio de Testes pelo WhatsApp</big></big></strong>
+  <strong><big><big>Visualização do restaurante e envio de testes pelo WhatsApp</big></big></strong>
 </p>
 
 Os avisos alimentares gerados são apresentados na interface simulada do restaurante e enviados a um destino de testes no WhatsApp por meio do fluxo integrado.
@@ -117,11 +116,11 @@ Essas saídas demonstram como informações estruturadas dos pedidos e orientaç
 ---
 
 <p>
-  <strong><big><big>3. Principais Funcionalidades</big></big></strong>
+  <strong><big><big>3. Principais funcionalidades</big></big></strong>
 </p>
 
 <p>
-  <strong><big>Interpretação Estruturada de Pedidos</big></strong>
+  <strong><big>Interpretação estruturada de pedidos</big></strong>
 </p>
 
 Processa informações fornecidas pelos clientes sobre:
@@ -137,7 +136,7 @@ A aplicação diferencia a exclusão de um ingrediente da declaração de uma co
 Por exemplo, solicitar um alimento "sem queijo" não significa automaticamente que o cliente possui alergia ao leite.
 
 <p>
-  <strong><big>Orientações Contextualizadas por IA</big></strong>
+  <strong><big>Orientações contextualizadas por IA</big></strong>
 </p>
 
 O Gemini gera sugestões contextualizadas para apoiar as operações dos restaurantes, incluindo:
@@ -152,7 +151,7 @@ O Gemini gera sugestões contextualizadas para apoiar as operações dos restaur
 As sugestões geradas por IA complementam a verificação humana, sem substituí-la.
 
 <p>
-  <strong><big>Automação de Fluxos de Trabalho</big></strong>
+  <strong><big>Automação de fluxos de trabalho</big></strong>
 </p>
 
 O Make orquestra o fluxo externo de processamento com inteligência artificial.
@@ -160,7 +159,7 @@ O Make orquestra o fluxo externo de processamento com inteligência artificial.
 A aplicação se comunica com a automação e recupera o aviso alimentar resultante.
 
 <p>
-  <strong><big>Envio de Testes pelo WhatsApp</big></strong>
+  <strong><big>Envio de testes pelo WhatsApp</big></strong>
 </p>
 
 O fluxo integrado foi testado para entregar o aviso gerado a dois destinos:
@@ -171,7 +170,7 @@ O fluxo integrado foi testado para entregar o aviso gerado a dois destinos:
 Essas saídas foram validadas no ambiente de testes do MVP.
 
 <p>
-  <strong><big>Consulta Assíncrona Controlada (Polling)</big></strong>
+  <strong><big>Consulta assíncrona controlada (polling)</big></strong>
 </p>
 
 A aplicação possui um módulo dedicado de consultas assíncronas com:
@@ -184,31 +183,31 @@ A aplicação possui um módulo dedicado de consultas assíncronas com:
 - Limpeza dos recursos quando o componente é desmontado.
 
 <p>
-  <strong><big><big>4. Tecnologias Utilizadas</big></big></strong>
+  <strong><big><big>4. Tecnologias utilizadas</big></big></strong>
 </p>
 
 <p align="center">
   <img
-    src="docs/assets/tabela-tecnlogias.png"
+    src="docs/assets/tabela-tecnologias.png"
     alt="SAFE FOOD AI — Tecnologias utilizadas no projeto"
     width="50%"
   >
 </p>
 
 <p>
-  <strong><big><big>5. Arquitetura do Sistema</big></big></strong>
+  <strong><big><big>5. Arquitetura do sistema</big></big></strong>
 </p>
 
 O MVP utiliza um fluxo de processamento assíncrono.
 
 <p>
-  <strong><big>Arquitetura Visual</big></strong>
+  <strong><big>Arquitetura visual</big></strong>
 </p>
 
 <!-- O diagrama de arquitetura será adicionado após sua publicação em docs/assets/. -->
 
 <p>
-  <strong><big>Fluxo Técnico</big></strong>
+  <strong><big>Fluxo técnico</big></strong>
 </p>
 
 <p align="center">
@@ -224,7 +223,7 @@ A aplicação utiliza verificações assíncronas de status para recuperar o avi
 A implementação do polling inclui mecanismos de proteção relacionados a tempo limite, cancelamento de requisições e tratamento de falhas.
 
 <p>
-  <strong><big><big>6. Integração de IA e Supervisão Humana</big></big></strong>
+  <strong><big><big>6. Integração de IA e supervisão humana</big></big></strong>
 </p>
 
 A inteligência artificial generativa é utilizada para produzir recomendações operacionais contextualizadas com base nas informações dos pedidos.
@@ -242,15 +241,19 @@ Entre os princípios adotados estão:
 O MVP não verifica de maneira independente os ingredientes utilizados pelos restaurantes, as condições das cozinhas ou as práticas de manipulação dos alimentos.
 
 <p>
-  <strong><big><big>7. Testes e Validação</big></big></strong>
+  <strong><big><big>7. Testes e validação</big></big></strong>
 </p>
 
-O projeto inclui testes automatizados para interpretação de pedidos, proteção da API e consultas assíncronas dos avisos alimentares.
+O projeto inclui **37 testes automatizados**, distribuídos entre:
+
+- 21 testes de interpretação de pedidos.
+- 8 testes de proteção da API de alertas do restaurante.
+- 8 testes de polling.
 
 <p align="center">
   <img
     src="docs/assets/testes-aprovados.png"
-    alt="SAFE FOOD AI — Resultados dos testes automatizados: 37 testes aprovados"
+    alt="SAFE FOOD AI — Resultados dos 37 testes automatizados"
     width="50%"
   >
 </p>
@@ -266,7 +269,7 @@ Os testes automatizados utilizam cenários controlados e mocks. Portanto, não v
 O fluxo integrado entre Make, Gemini e WhatsApp também foi testado de ponta a ponta no ambiente do MVP.
 
 <p>
-  <strong><big><big>8. Engenharia Assistida por IA com Cursor</big></big></strong>
+  <strong><big><big>8. Engenharia assistida por IA com Cursor</big></big></strong>
 </p>
 
 O Cursor AI foi utilizado para apoiar uma auditoria técnica direcionada à implementação do módulo de polling dos avisos alimentares.
@@ -285,12 +288,12 @@ A implementação passou por 37 testes automatizados e pelas verificações loca
 
 **Leia o estudo de caso técnico completo:**
 
-[Cursor AI — Auditoria Técnica e Validação](docs/CURSOR_TECHNICAL_AUDIT.md)
+[Cursor AI — Auditoria técnica e validação](docs/CURSOR_TECHNICAL_AUDIT.md)
 
 Commit da implementação: `761f349`
 
 <p>
-  <strong><big><big>9. Executando Localmente</big></big></strong>
+  <strong><big><big>9. Executando localmente</big></big></strong>
 </p>
 
 <p>
@@ -333,7 +336,7 @@ Acesse:
 http://localhost:3000
 
 <p>
-  <strong><big>Executar Testes Automatizados</big></strong>
+  <strong><big>Executar testes automatizados</big></strong>
 </p>
 
 ```bash
@@ -341,7 +344,7 @@ npx vitest run
 ```
 
 <p>
-  <strong><big>Executar Verificações de Build e Lint</big></strong>
+  <strong><big>Executar verificações de build e lint</big></strong>
 </p>
 
 ```bash
@@ -352,7 +355,7 @@ npm run lint
 Algumas funcionalidades integradas exigem que os serviços externos estejam corretamente configurados.
 
 <p>
-  <strong><big><big>10. Escopo Atual e Limitações</big></big></strong>
+  <strong><big><big>10. Escopo atual e limitações</big></big></strong>
 </p>
 
 O SAFE FOOD AI é um MVP de portfólio e uma demonstração técnica.
@@ -369,7 +372,7 @@ Entre as limitações atuais estão:
 A aplicação não deve ser utilizada como única base para decisões relacionadas à segurança de pessoas com alergias alimentares.
 
 <p>
-  <strong><big><big>11. Melhorias Futuras</big></big></strong>
+  <strong><big><big>11. Melhorias futuras</big></big></strong>
 </p>
 
 Entre as possíveis evoluções estão:
@@ -385,7 +388,7 @@ Entre as possíveis evoluções estão:
 Esses itens representam melhorias potenciais, não funcionalidades já concluídas.
 
 <p>
-  <strong><big><big>12. Objetivo do Projeto</big></big></strong>
+  <strong><big><big>12. Objetivo do projeto</big></big></strong>
 </p>
 
 O SAFE FOOD AI foi desenvolvido como uma exploração prática da conexão entre inteligência artificial generativa, processos de negócios, automação de fluxos de trabalho e desenvolvimento de aplicações.
