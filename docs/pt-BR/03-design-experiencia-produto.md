@@ -54,7 +54,7 @@ Uma prancha editorial de referências pode complementar esta seção futuramente
 ## 3.3 Identidade visual e desenvolvimento do símbolo
 
 <p align="center">
-  <img src="../../assets/safe-food-logo-construction.png" alt="Construção do símbolo SAFE FOOD AI" width="850">
+  <img src="../../assets/safe-food-logo-construction.jpg" alt="Construção do símbolo SAFE FOOD AI" width="850">
 </p>
 
 *Figura 3.1 — Prancha de construção da identidade visual do SAFE FOOD AI. A imagem documenta o conceito do símbolo e a linguagem visual adotada.*
