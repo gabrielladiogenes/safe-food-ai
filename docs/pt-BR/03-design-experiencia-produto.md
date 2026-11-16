@@ -127,9 +127,6 @@ A identidade foi explorada também como experiência em movimento. Os registros 
 A experiência do SAFE FOOD AI foi orientada por decisões que conectam simplicidade de interação e precisão da informação.
 
 
-https://github.com/user-attachments/assets/tela-safe-food-readme.mov
-
-
 **Contexto por pedido.** As especificações são informadas para a solicitação atual, sem exigir cadastro, login, histórico ou perfil alimentar persistente no MVP.
 
 **Fidelidade às instruções.** A interface deve permitir expressar itens, quantidades, modificações e exclusões sem converter automaticamente preferências em condições médicas.
@@ -140,9 +137,10 @@ https://github.com/user-attachments/assets/tela-safe-food-readme.mov
 
 **Redução de atrito.** O formulário busca coletar informações necessárias à solicitação sem introduzir etapas de conta ou configuração permanente que não fazem parte do escopo inicial.
 
-Esses princípios orientam o desenho do produto, mas ainda não constituem evidência de facilidade de uso ou satisfação comprovada.
+
 
 ---
+
 
 ## 3.7 Arquitetura da informação e jornada do usuário
 
@@ -175,7 +173,6 @@ Pedidos com vários itens podem conter instruções aplicáveis apenas a uma uni
   <img src="../assets/customer-interface.png" alt="Interface do consumidor SAFE FOOD AI" width="800">
 </p>
 
-*Figura 3.3 — Interface do consumidor do SAFE FOOD AI, com identidade visual e formulário de especificações alimentares.*
 
 A interface do consumidor combina apresentação de marca e coleta de informações alimentares. O título animado e o formulário foram refinados ao longo do desenvolvimento, preservando uma estrutura voltada ao registro de solicitações específicas.
 
