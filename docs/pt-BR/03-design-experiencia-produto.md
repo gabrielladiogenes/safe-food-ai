@@ -121,27 +121,14 @@ A linguagem proposta combina formas arredondadas, espaços em branco, contraste 
 
 A identidade foi explorada também como experiência em movimento. Os registros de desenvolvimento incluem a ideia de uma sequência animada que apresenta o símbolo, revela o nome SAFE FOOD e conecta a marca a diferentes momentos de consumo.
 
-### 3.5.1 Conceito da animação
-
-A narrativa visual registrada contempla uma progressão entre **símbolo**, **nome da marca** e **mensagem dinâmica**, com referências a café, almoço, lanche e janta. Foram exploradas transições com rotação e implosão, composição horizontal compacta, fundo claro e repetição em loop.
-
-Essa escolha procura transformar a abertura da interface em uma introdução breve ao universo do produto. A animação não deve dificultar o preenchimento do formulário nem competir com a compreensão das instruções.
-
-### 3.5.2 Função na experiência
-
-O movimento cumpre duas funções propostas:
-
-1. **Expressão de identidade:** tornar a marca reconhecível para além de uma imagem estática.
-2. **Contextualização:** relacionar a solução a diferentes ocasiões alimentares sem restringi-la a um único tipo de refeição.
-
-A animação deve ser avaliada também sob critérios de duração, legibilidade, desempenho e preferência por movimento reduzido. Não há evidência registrada de testes formais desses aspectos com usuários.
-
-tela-safe-food-readme.mov
----
 
 ## 3.6 Princípios de experiência do produto
 
 A experiência do SAFE FOOD AI foi orientada por decisões que conectam simplicidade de interação e precisão da informação.
+
+
+https://github.com/user-attachments/assets/tela-safe-food-readme.mov
+
 
 **Contexto por pedido.** As especificações são informadas para a solicitação atual, sem exigir cadastro, login, histórico ou perfil alimentar persistente no MVP.
 
