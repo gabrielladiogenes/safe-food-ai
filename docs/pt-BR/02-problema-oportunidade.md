@@ -83,9 +83,9 @@ Algumas especificações exigem atenção que ultrapassa a retirada ou substitui
 
 A montagem, a identificação, a embalagem e o transporte também podem influenciar a adequação do pedido às expectativas do consumidor.
 
-O exemplo das esfihas apresentado no Capítulo 01 demonstra essa relação: além de identificar as unidades solicitadas sem queijo, a orientação operacional pode considerar sua separação durante a embalagem e o transporte.
+Esses cuidados podem incluir a identificação adequada dos itens e sua separação durante a embalagem e o transporte, conforme as especificações de cada pedido.
 
-Essa recomendação não representa garantia de ausência de contato cruzado, especialmente em situações de alergia alimentar.
+Essas orientações não representam garantia de ausência de contato cruzado, especialmente em situações de alergia alimentar.
 
 A oportunidade identificada está em ampliar a compreensão das necessidades do pedido, considerando diferentes etapas operacionais sem presumir que todas possam ser verificadas pela tecnologia.
 
