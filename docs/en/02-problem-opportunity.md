@@ -83,9 +83,9 @@ Some specifications require attention beyond removing or replacing an ingredient
 
 Assembly, identification, packaging, and transportation may also influence whether an order meets consumer expectations.
 
-The example of esfihas presented in Chapter 01 illustrates this relationship: in addition to identifying the units requested without cheese, operational guidance may consider keeping them separate during packaging and transportation.
+These precautions may include properly identifying items and keeping them separate during packaging and transportation, according to each order’s specifications.
 
-This recommendation does not guarantee the absence of cross-contact, particularly in cases involving food allergies.
+This guidance does not guarantee the absence of cross-contact, particularly in cases involving food allergies.
 
 The identified opportunity lies in broadening the understanding of order requirements by considering different operational stages without assuming that technology can verify all of them.
 
