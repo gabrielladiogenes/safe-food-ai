@@ -136,18 +136,7 @@ O movimento cumpre duas funções propostas:
 
 A animação deve ser avaliada também sob critérios de duração, legibilidade, desempenho e preferência por movimento reduzido. Não há evidência registrada de testes formais desses aspectos com usuários.
 
-### 3.5.3 Evidência visual
-
-<p align="center">
-  <img src="../assets/SAFEFOOD-MOTION.gif" alt="Motion design do SAFE FOOD AI" width="650">
-</p>
-
-*Figura 3.2 — Animação desenvolvida para a experiência visual do SAFE FOOD AI, conectando identidade de marca e contexto alimentar.*
-
-O arquivo `SAFEFOOD-MOTION.gif` documenta a exploração de movimento da marca e sua aplicação na experiência.
-
-A presença do GIF permite apresentar visualmente a proposta de motion branding, complementando a descrição das decisões criativas.
-
+tela-safe-food-readme.mov
 ---
 
 ## 3.6 Princípios de experiência do produto
