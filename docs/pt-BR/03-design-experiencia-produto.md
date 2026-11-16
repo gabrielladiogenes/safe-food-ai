@@ -1,6 +1,10 @@
 
 # 03 — Design e Experiência do Produto
 
+![Identidade animada do SAFE FOOD AI](../../assets/safefood-logo.gif)
+
+*Figura de abertura — Símbolo animado da identidade SAFE FOOD AI.*
+
 **SAFE FOOD AI — Identidade visual, direção criativa, motion design e experiência digital**
 
 O design do SAFE FOOD AI foi concebido como parte da solução de produto, não apenas como acabamento visual. Diante de um problema que envolve comunicar preferências e necessidades alimentares com clareza, a proposta buscou construir uma experiência direta, reconhecível e coerente com a finalidade do serviço: transformar informações individuais em avisos mais organizados para avaliação humana.
@@ -23,6 +27,8 @@ A direção criativa buscou equilibrar três atributos:
 
 A identidade utiliza um repertório visual acessível e expressivo. O símbolo vermelho e a tipografia arredondada conferem personalidade, enquanto o fundo predominantemente claro mantém a leitura como prioridade. Essas características representam intenções de design; sua percepção por usuários ainda precisa ser investigada.
 
+---
+
 ## 3.2 Pesquisa visual, referências e moodboarding
 
 A exploração visual reuniu referências de identidades minimalistas, lettering expressivo, símbolos construídos a partir de formas familiares e apresentações editoriais de processos de marca. O objetivo não era reproduzir uma referência, mas encontrar uma linguagem adequada à proposta do SAFE FOOD AI.
@@ -43,13 +49,15 @@ O critério central de seleção foi a capacidade de conectar **alimentação, i
 
 Uma prancha editorial de referências pode complementar esta seção futuramente, desde que suas imagens e respectivas fontes sejam identificadas. Uma eventual reconstrução do moodboard deverá ser apresentada como tal, e não como registro original contemporâneo a todas as decisões.
 
+---
+
 ## 3.3 Identidade visual e desenvolvimento do símbolo
 
-A marca partiu da ideia de incorporar **colher e faca** à inicial **S**, unindo dois elementos diretamente relacionados à alimentação a uma forma tipográfica única. A escolha dos talheres também dialoga com a proposta de pedidos individualizados: um mesmo contexto alimentar pode envolver instruções diferentes para cada pessoa e cada item.
-
-![Construção do símbolo SAFE FOOD AI: letra S, referência aos talheres, tipografia e paleta de cores](../../assets/design/safe-food-logo-construction.png)
+![Construção do símbolo SAFE FOOD AI: letra S, referência aos talheres, tipografia e paleta de cores](../../assets/safe-food-logo-construction.png)
 
 *Figura 3.1 — Prancha de construção da identidade visual do SAFE FOOD AI. A imagem documenta o conceito do símbolo e a linguagem visual adotada.*
+
+A marca partiu da ideia de incorporar **colher e faca** à inicial **S**, unindo dois elementos diretamente relacionados à alimentação a uma forma tipográfica única. A escolha dos talheres também dialoga com a proposta de pedidos individualizados: um mesmo contexto alimentar pode envolver instruções diferentes para cada pessoa e cada item.
 
 ### 3.3.1 Conceito e composição
 
@@ -72,6 +80,8 @@ A robustez também favorece a identificação da silhueta em diferentes contexto
 Durante a apresentação da identidade, foram exploradas pranchas com grid de construção, alinhamentos e marcações de forma. O refinamento priorizou um **vermelho sólido**, sem linhas sobrepostas à área preenchida do símbolo, e um grid externo discreto para evidenciar sua composição.
 
 A prancha demonstra intenção de consistência geométrica, mas não constitui, por si só, comprovação de simetria matemática ou especificação vetorial de produção.
+
+---
 
 ## 3.4 Tipografia, cores e linguagem visual
 
@@ -101,6 +111,8 @@ O vermelho foi escolhido por sua associação cultural recorrente à energia, ao
 
 A linguagem proposta combina formas arredondadas, espaços em branco, contraste entre texto escuro e superfícies claras e uso seletivo do vermelho. O objetivo é permitir que a marca seja expressiva sem competir com as instruções alimentares, que são o conteúdo prioritário da experiência.
 
+---
+
 ## 3.5 Motion design e experiência de marca animada
 
 A identidade foi explorada também como experiência em movimento. Os registros de desenvolvimento incluem a ideia de uma sequência animada que apresenta o símbolo, revela o nome SAFE FOOD e conecta a marca a diferentes momentos de consumo.
@@ -122,7 +134,15 @@ A animação deve ser avaliada também sob critérios de duração, legibilidade
 
 ### 3.5.3 Evidência visual
 
-O histórico do projeto menciona o arquivo `SAFEFOOD-MOTION.gif`. A incorporação do GIF à documentação deve ocorrer após a confirmação de seu caminho e da correspondência entre o arquivo e a versão final da experiência.
+![Motion design do SAFE FOOD AI](../../assets/SAFEFOOD-MOTION.gif)
+
+*Figura 3.2 — Animação desenvolvida para a experiência visual do SAFE FOOD AI, conectando identidade de marca e contexto alimentar.*
+
+O arquivo `SAFEFOOD-MOTION.gif` documenta a exploração de movimento da marca e sua aplicação na experiência.
+
+A presença do GIF permite apresentar visualmente a proposta de motion branding, complementando a descrição das decisões criativas.
+
+---
 
 ## 3.6 Princípios de experiência do produto
 
@@ -139,6 +159,8 @@ A experiência do SAFE FOOD AI foi orientada por decisões que conectam simplici
 **Redução de atrito.** O formulário busca coletar informações necessárias à solicitação sem introduzir etapas de conta ou configuração permanente que não fazem parte do escopo inicial.
 
 Esses princípios orientam o desenho do produto, mas ainda não constituem evidência de facilidade de uso ou satisfação comprovada.
+
+---
 
 ## 3.7 Arquitetura da informação e jornada do usuário
 
@@ -163,7 +185,13 @@ A organização prioriza a distinção entre **dados fornecidos pelo consumidor*
 
 Pedidos com vários itens podem conter instruções aplicáveis apenas a uma unidade ou porção. A experiência precisa preservar essas relações. Também deve reconhecer quando a informação não é suficiente para produzir uma orientação confiável, encaminhando a necessidade de confirmação humana.
 
+---
+
 ## 3.8 Interface do consumidor e desenho do formulário
+
+![Interface do consumidor SAFE FOOD AI](../../assets/customer-interface.png)
+
+*Figura 3.3 — Interface do consumidor do SAFE FOOD AI, com identidade visual e formulário de especificações alimentares.*
 
 A interface do consumidor combina apresentação de marca e coleta de informações alimentares. O título animado e o formulário foram refinados ao longo do desenvolvimento, preservando uma estrutura voltada ao registro de solicitações específicas.
 
@@ -181,6 +209,8 @@ Essa distinção não é apenas uma regra de processamento; é uma decisão de e
 
 A marca e o movimento conferem personalidade à abertura, enquanto os campos e as mensagens devem manter prioridade funcional. O objetivo é que a experiência seja expressiva, mas que a informação crítica continue fácil de localizar e compreender.
 
+---
+
 ## 3.9 Interface do estabelecimento e experiência de comunicação
 
 A solução também contempla uma **interface demonstrativa de visualização do restaurante** e o encaminhamento de avisos a um **destino de testes no WhatsApp**. Esses elementos foram desenvolvidos para demonstrar a continuidade da informação entre a entrada do consumidor e sua apresentação em formato operacional.
@@ -196,6 +226,8 @@ Os registros incluem refinamentos da apresentação de mensagens em um contexto 
 ### 3.9.3 Responsabilidade operacional
 
 A interface não confirma que o estabelecimento leu, aceitou ou executou as orientações. A viabilidade de preparo, os ingredientes, os procedimentos internos e os cuidados de segurança alimentar permanecem sujeitos à avaliação e à responsabilidade humana.
+
+---
 
 ## 3.10 Estados de interação, feedback e erros
 
@@ -213,6 +245,8 @@ Um produto que processa informações por meio de IA e automação precisa torna
 
 A distinção mais importante é entre **sucesso técnico** e **segurança ou execução do pedido**. Uma mensagem de sucesso não deve ser interpretada como confirmação de que o alimento foi preparado corretamente.
 
+---
+
 ## 3.11 Responsividade e acessibilidade
 
 O projeto foi concebido como uma experiência web, com atenção à apresentação das interfaces em diferentes contextos de visualização, incluindo representações em smartphone.
@@ -228,6 +262,8 @@ Do ponto de vista de design, os principais critérios a verificar são:
 - Evitar que a cor, isoladamente, seja o único meio de comunicar uma condição.
 
 Esses itens são **critérios de avaliação**, não uma declaração de conformidade já auditada. A verificação técnica e os testes de acessibilidade devem ser documentados com evidências no capítulo de validação.
+
+---
 
 ## 3.12 Decisões, alternativas e iterações
 
@@ -245,6 +281,8 @@ O histórico de design do SAFE FOOD AI é relevante porque revela decisões prog
 | Comunicar falhas | Estados de espera, conclusão e erro | Tratamento de situações de processamento e interrupção | É necessário testar se as mensagens são compreendidas por usuários |
 
 A evolução detalhada por versões, incluindo implementação e correções técnicas, será apresentada no **Capítulo 05 — Jornada de Desenvolvimento**.
+
+---
 
 ## 3.13 Resultados de design e validações futuras
 
@@ -268,6 +306,8 @@ A próxima etapa de pesquisa de experiência poderá investigar:
 
 As respostas exigirão testes com participantes, critérios de avaliação definidos e registro de evidências. Até lá, os benefícios de experiência permanecem como hipóteses.
 
+---
+
 ## 3.14 Síntese: design como parte da solução
 
 No SAFE FOOD AI, design e experiência do produto foram tratados como instrumentos para tornar uma necessidade individual mais fácil de expressar, interpretar e comunicar. A identidade visual foi construída a partir de elementos do universo alimentar; o motion amplia a expressão da marca; e a interface organiza a interação em torno de um pedido específico.
@@ -277,4 +317,3 @@ A principal decisão de produto foi não confundir **personalização** com **pr
 Sob a perspectiva de inteligência artificial aplicada a negócios, o capítulo demonstra como direção criativa, UX e pensamento de produto podem trabalhar em conjunto: **identificar uma fricção real, construir uma experiência coerente, explicitar seus limites e formular hipóteses que possam ser testadas**.
 
 O próximo capítulo apresenta a arquitetura e as integrações que sustentam essa experiência.
-
