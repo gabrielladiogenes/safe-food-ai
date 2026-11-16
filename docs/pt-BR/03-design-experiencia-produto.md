@@ -1,9 +1,9 @@
 
 # 03 — Design e Experiência do Produto
 
-![Identidade animada do SAFE FOOD AI](../../assets/safefood-logo.gif)
-
-*Figura de abertura — Símbolo animado da identidade SAFE FOOD AI.*
+<p align="center">
+  <img src="../../assets/safefood-logo.gif" alt="SAFE FOOD AI — Identidade animada" width="500">
+</p>
 
 **SAFE FOOD AI — Identidade visual, direção criativa, motion design e experiência digital**
 
@@ -53,7 +53,9 @@ Uma prancha editorial de referências pode complementar esta seção futuramente
 
 ## 3.3 Identidade visual e desenvolvimento do símbolo
 
-![Construção do símbolo SAFE FOOD AI: letra S, referência aos talheres, tipografia e paleta de cores](../../assets/safe-food-logo-construction.png)
+<p align="center">
+  <img src="../../assets/safe-food-logo-construction.png" alt="Construção do símbolo SAFE FOOD AI" width="850">
+</p>
 
 *Figura 3.1 — Prancha de construção da identidade visual do SAFE FOOD AI. A imagem documenta o conceito do símbolo e a linguagem visual adotada.*
 
@@ -134,7 +136,9 @@ A animação deve ser avaliada também sob critérios de duração, legibilidade
 
 ### 3.5.3 Evidência visual
 
-![Motion design do SAFE FOOD AI](../../assets/SAFEFOOD-MOTION.gif)
+<p align="center">
+  <img src="../../assets/SAFEFOOD-MOTION.gif" alt="Motion design do SAFE FOOD AI" width="650">
+</p>
 
 *Figura 3.2 — Animação desenvolvida para a experiência visual do SAFE FOOD AI, conectando identidade de marca e contexto alimentar.*
 
@@ -189,7 +193,9 @@ Pedidos com vários itens podem conter instruções aplicáveis apenas a uma uni
 
 ## 3.8 Interface do consumidor e desenho do formulário
 
-![Interface do consumidor SAFE FOOD AI](../../assets/customer-interface.png)
+<p align="center">
+  <img src="../../assets/customer-interface.png" alt="Interface do consumidor SAFE FOOD AI" width="800">
+</p>
 
 *Figura 3.3 — Interface do consumidor do SAFE FOOD AI, com identidade visual e formulário de especificações alimentares.*
 
