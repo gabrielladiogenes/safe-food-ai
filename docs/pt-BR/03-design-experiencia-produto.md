@@ -169,11 +169,6 @@ Pedidos com vários itens podem conter instruções aplicáveis apenas a uma uni
 
 ## 3.8 Interface do consumidor e desenho do formulário
 
-<p align="center">
-  <img src="../assets/customer-interface.png" alt="Interface do consumidor SAFE FOOD AI" width="800">
-</p>
-
-
 A interface do consumidor combina apresentação de marca e coleta de informações alimentares. O título animado e o formulário foram refinados ao longo do desenvolvimento, preservando uma estrutura voltada ao registro de solicitações específicas.
 
 ### 3.8.1 Formulário orientado ao pedido
