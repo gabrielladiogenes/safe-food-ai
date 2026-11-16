@@ -428,27 +428,11 @@ O projeto registra 37 testes automatizados, distribuídos entre interpretação 
 
 Também foram realizadas verificações locais de build, TypeScript e lint, além de testes funcionais do fluxo integrado no ambiente do MVP.
 
-Essas validações sustentam aspectos específicos da implementação técnica.
-
-Não representam comprovação de impacto comercial, melhoria da experiência do consumidor ou redução de riscos alimentares.
-
-### 2.9.3 Resultados ainda não validados
-
-Até o estágio documentado, não existem evidências suficientes para afirmar:
-
-- Redução mensurada da insegurança dos consumidores.
-- Melhoria comprovada da confiança na experiência de delivery.
-- Redução de erros operacionais em restaurantes reais.
-- Diminuição quantificada de retrabalho.
-- Redução de incidentes relacionados à segurança alimentar.
-- Adoção comercial do produto por estabelecimentos.
-
-Esses resultados permanecem como possibilidades de investigação futura.
-
+Essas validações demonstram aspectos específicos da viabilidade técnica do MVP, enquanto seu impacto potencial na experiência do consumidor, na eficiência operacional e na geração de valor para o negócio permanece sujeito a avaliações futuras.
 
 ---
 
-## 2.9 Síntese da oportunidade
+## 2.10 Síntese da oportunidade
 
 A análise apresentada neste capítulo aprofunda o problema que motivou o desenvolvimento do SAFE FOOD AI.
 
