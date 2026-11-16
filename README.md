@@ -42,7 +42,7 @@ Documentation is being organized in two languages:
 
 1. Project Overview and Origin
 2. Problem and Opportunity
-3. Product Experience and Design
+3. Design and Product Experience
 4. System Architecture and Integrations
 5. Development Journey
 6. AI Engineering and Automation
