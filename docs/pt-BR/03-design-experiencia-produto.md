@@ -1,14 +1,4 @@
 
-<div align="right">
-
-[English](README.md) | **Português**
-
-</div>
-
-<p align="center">
-  <img src="docs/assets/safefood-logo.gif" alt="SAFE FOOD AI — Apresentação animada" width="100%">
-</p>
-
 # 03 — Design e Experiência do Produto
 
 <p align="center">
@@ -63,15 +53,9 @@ Uma prancha editorial de referências pode complementar esta seção futuramente
 
 ## 3.3 Identidade visual e desenvolvimento do símbolo
 
-
 <p align="center">
   <img src="../../assets/safe-food-logo-construction.jpg" alt="Construção do símbolo SAFE FOOD AI" width="850">
 </p>
-
-*Figura 3.1 — Prancha de construção da identidade visual do SAFE FOOD AI. A imagem documenta o conceito do símbolo e a linguagem visual adotada.*
-
-A marca partiu da ideia de incorporar **colher e faca** à inicial **S**, unindo dois elementos diretamente relacionados à alimentação a uma forma tipográfica única.
-
 
 *Figura 3.1 — Prancha de construção da identidade visual do SAFE FOOD AI. A imagem documenta o conceito do símbolo e a linguagem visual adotada.*
 
