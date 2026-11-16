@@ -57,7 +57,9 @@ Uma prancha editorial de referências pode complementar esta seção futuramente
   <img src="../assets/safe-food-logo-construction.png" alt="Construção do símbolo SAFE FOOD AI" width="850">
 </p>
 
-*Figura 3.1 — Prancha de construção da identidade visual do SAFE FOOD AI. A imagem documenta o conceito do símbolo e a linguagem visual adotada.*
+
+
+  
 
 A marca partiu da ideia de incorporar **colher e faca** à inicial **S**, unindo dois elementos diretamente relacionados à alimentação a uma forma tipográfica única. A escolha dos talheres também dialoga com a proposta de pedidos individualizados: um mesmo contexto alimentar pode envolver instruções diferentes para cada pessoa e cada item.
 
